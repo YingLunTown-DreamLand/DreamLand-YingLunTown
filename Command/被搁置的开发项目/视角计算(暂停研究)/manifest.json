@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "RX",
+        "name": "rx",
+        "uuid": "83c22e09-9e0e-43a3-a578-6f6c6e299faf",
+        "version": [ 0, 0, 0 ],
+        "min_engine_version": [ 1, 14, 0 ]
+    },
+    "modules": [
+        {
+            "description": "返回死亡点(第三代-正式版)",
+            "type": "data",
+            "uuid": "76c6307e-5ebb-4c26-af90-686e38ac0303",
+            "version": [3, 7, 2]
+        }
+    ]
+}
