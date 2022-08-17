@@ -1,0 +1,29 @@
+结构排列方式：
+3 6 9
+2 5 8
+1 4 7
+=======================================
+结构导出点：(6741,0,6591)
+实际观测点：导出点的Y=0~-3修正位置
+建筑作者：晓月黯殇
+建筑导出者：Happy2018new
+建筑导出和重载时间：2021/07/23 21:25~21:56
+命令：
+tp 6741 -3 6591
+structure load xygh_1 ~-63 0 ~
+tp ~ ~ ~64
+structure load xygh_2 ~-63 0 ~
+tp ~ ~ ~64
+structure load xygh_3 ~-63 0 ~
+tp ~-64 ~ ~
+structure load xygh_6 ~-63 0 ~
+tp ~ ~ ~-64
+structure load xygh_5 ~-63 0 ~
+tp ~ ~ ~-64
+structure load xygh_4 ~-63 0 ~
+tp ~-64 ~ ~
+structure load xygh_7 ~-63 0 ~
+tp ~ ~ ~64
+structure load xygh_8 ~-63 0 ~
+tp ~ ~ ~64
+structure load xygh_9 ~-63 0 ~

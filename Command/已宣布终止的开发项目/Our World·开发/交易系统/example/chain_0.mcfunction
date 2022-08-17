@@ -1,0 +1,2 @@
+execute @a[tag=buy:i_c,scores={buy:math=0}] ~ ~ ~ scoreboard players set @e[tag=buy:item_change_to_coin_helper] buy:execute 10
+execute @a[tag=buy:i_c,scores={buy:math=0}] ~ ~ ~ scoreboard players set @s buy:i_c_uid 1

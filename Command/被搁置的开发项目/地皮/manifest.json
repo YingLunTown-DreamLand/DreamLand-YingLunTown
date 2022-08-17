@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+{
+    "format_version": 2,
+    "header": {
+        "description": "连锁挖矿",
+        "name": "Chain_Ore",
+        "uuid": "9621c934-6f7d-4ab0-a155-22db399b4f65",
+        "version": [ 2, 1, 0 ],
+        "min_engine_version": [ 1, 13, 0 ]
+    },
+    "modules": [
+        {
+            "description": "连锁挖矿",
+            "type": "data",
+            "uuid": "63520e6b-8e3b-4f43-8183-d2e99cbc90d1",
+            "version": [2, 1, 0]
+        }
+    ]
+=======
+{
+    "format_version": 2,
+    "header": {
+        "description": "连锁挖矿",
+        "name": "Chain_Ore",
+        "uuid": "9621c934-6f7d-4ab0-a155-22db399b4f65",
+        "version": [ 2, 1, 0 ],
+        "min_engine_version": [ 1, 13, 0 ]
+    },
+    "modules": [
+        {
+            "description": "连锁挖矿",
+            "type": "data",
+            "uuid": "63520e6b-8e3b-4f43-8183-d2e99cbc90d1",
+            "version": [2, 1, 0]
+        }
+    ]
+>>>>>>> d95f919c53aa8612409504198bbed77f930d5f64
+}

@@ -1,0 +1,41 @@
+结构排列方式：
+3 6 9 12
+2 5 8 11
+1 4 7 10
+=======================================
+结构导出点：(1979,0,51980)
+实际观测点：起止点的Y=97修正位置
+建筑作者：MC丶血小板
+建筑导出者：Happy2018new
+建筑导出和重载时间：2021/07/06 15:00~16:13
+命令：
+tp 1979 97 51980
+structure load main_1 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_2 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_3 ~ ~ ~-64
+tp 1979 97 51980
+tp ~64 ~ ~
+structure load main_4 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_5 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_6 ~ ~ ~-64
+tp 1979 97 51980
+tp ~64 ~ ~
+tp ~64 ~ ~
+structure load main_7 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_8 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_9 ~ ~ ~-64
+tp 1979 97 51980
+tp ~64 ~ ~
+tp ~64 ~ ~
+tp ~64 ~ ~
+structure load main_10 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_11 ~ ~ ~-64
+tp ~ ~ ~-64
+structure load main_12 ~ ~ ~-64

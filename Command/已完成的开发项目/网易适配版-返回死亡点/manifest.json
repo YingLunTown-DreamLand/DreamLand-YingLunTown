@@ -1,0 +1,20 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "返回死亡点(网易适配版-1.5.6)",
+        "name": "B-T-t-D-P(网易适配版)",
+        "uuid": "83c22e09-9e0e-43a3-a578-6f6c6e299faf",
+        "version": [ 1, 5, 6 ],
+        "min_engine_version": [ 1, 14, 0 ]
+    },
+    "modules": [
+        {
+            "description": "返回死亡点(网易适配版-1.5.6)",
+            "type": "data",
+            "uuid": "76c6307e-5ebb-4c26-af90-686e38ac0303",
+            "version": [1, 5, 6]
+        }
+    ]
+}
+#害，网易把64禁了。。。还要做网易版适配。。
+#还有一些词，比如“操作”和“无敌”。。

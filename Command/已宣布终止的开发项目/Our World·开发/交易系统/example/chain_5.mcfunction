@@ -1,0 +1,2 @@
+scoreboard players add @a[tag=buy:i_c,scores={buy:math=0}] coin 100
+tellraw @a[tag=buy:i_c,scores={buy:math=0}] {"rawtext":[{"text":"§l§f【§b交易§1系统§f】 §r§a交易成功§f！§a您已成功使用 §l§b10 §r§a个铁锭换取 §l§e金§6币 §r§7* §l§b100\n§r§a当前还有 §l§e金§6币 §r§7* §l§b"},{"score":{"objective":"coin","name":"*"}}]}

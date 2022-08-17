@@ -1,0 +1,7 @@
+run.mcfunction是主函数，持续调用它即可。
+BasicValueSettings.mcfunction用于设置各个基础物理常量。
+丢出雪球即可使用本系统。
+注意：由于反弹检测及碰撞处理过于复杂，所以并未考虑实现。目前使用的反弹检测和碰撞处理为 劣质 版本，固存在穿模等各种问题。
+#Made By Happy2018new
+#This PaoWuBall System Is New Version!
+#2022/02/25~2022/02/26 Afternoon. 

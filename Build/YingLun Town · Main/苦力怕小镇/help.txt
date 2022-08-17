@@ -1,0 +1,83 @@
+结构排列方式：
+5 10 15 20 25 30
+4   9 14 19 24 29
+3   8 13 18 23 28
+2   7 12 17 22 27
+1   6 11 16 21 26
+=======================================
+结构导出点：(9532,0,4299)
+实际观测点：导出点的Y=0~-4修正位置
+建筑作者：苦力怕James及生存者联盟
+建筑导出者：Happy2018new
+建筑导出和重载时间：2021/07/08 16:10~20:45
+命令：
+tp 9532 -3 4299
+structure load klpxz_1 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_2 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_3 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_4 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_5 ~ ~ ~-63
+tp ~64 ~ ~
+structure load klpxz_10 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_9 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_8 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_7 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_6 ~ ~ ~-63
+tp ~64 ~ ~
+structure load klpxz_11 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_12 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_13 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_14 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_15 ~ ~ ~-63
+tp ~64 ~ ~
+structure load klpxz_20 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_19 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_18 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_17 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_16 ~ ~ ~-63
+tp ~64 ~ ~
+structure load klpxz_21 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_22 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_23 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_24 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_25 ~ ~ ~-63
+tp ~64 ~ ~
+structure load klpxz_30 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_29 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_28 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_27 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_26 ~ ~ ~-63
+tp ~-64 ~ ~
+tp ~-64 ~ ~
+tp ~-64 ~ ~
+structure load klpxz_11 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_12 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_13 ~ ~ ~-63
+tp ~ ~ ~-64
+structure load klpxz_14 ~ ~ ~-63

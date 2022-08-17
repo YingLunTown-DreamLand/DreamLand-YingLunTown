@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "whiteboard",
+        "name": "White Board",
+        "uuid": "5604ea35-1753-4d86-ac34-03728b9fb887",
+        "version": [ 2, 1, 2 ],
+        "min_engine_version": [ 1, 13, 0 ]
+    },
+    "modules": [
+        {
+            "description": "whiteboard",
+            "type": "data",
+            "uuid": "11fd1a7a-0b74-44fa-86cc-c131a1c583f7",
+            "version": [2, 1, 2]
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+使用说明：
+在计分板“random”上存在两个计分项“number1”与“number2”。这两个计分项在计分板“random”的差的绝对值不超出计分板保存分数的范围(下称这两个计分项在计分板“random”的分数分别为number1和number2)。
+执行命令“/function run”后则会在number1到number2之间随机选择一个值作为计分板“random”上计分项“result”的分数。如果有玩家持有标签“random:get_result”，则执行函数run后还会向这类玩家在聊天栏以Tellraw返回“Random(number1, number2) == result”。
+取得随机值的方法服从均匀分布，因此取得number1到number2之间的数的概率一致，即取得每个可取的数的概率都是P=1/(|number2-number1|+1)。

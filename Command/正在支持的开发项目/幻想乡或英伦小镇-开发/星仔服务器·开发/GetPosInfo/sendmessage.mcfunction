@@ -1,0 +1,6 @@
+tellraw @a[tag=cre:GetPosInfo] {"rawtext":[{"text":"§bWelcome To Creators§f(§bGod§f) §bMode§f!\n§aFunction§f: §eGetPosInfo\n§aTarget§f: §e"},{"selector":"@a"}]}
+execute @a[tag=!cre:getpos_InLoadedArea,c=1] ~ ~ ~ tellraw @a[tag=cre:GetPosInfo] {"rawtext":[{"text":"§f[§cError§f] §cThese players are in the UnLoaded Area§f: §e"},{"selector":"@a[tag=!cre:getpos_InLoadedArea]"}]}
+execute @a[tag=cre:getpos_InLoadedArea,c=1] ~ ~ ~ tellraw @a[tag=cre:GetPosInfo] {"rawtext":[{"text":"§aInfo§f:"}]}
+execute @a[tag=cre:getpos_InLoadedArea] ~ ~ ~ tellraw @a[tag=cre:GetPosInfo] {"rawtext":[{"text":"§aTarget Name§f: §e"},{"selector":"@s"},{"text":" §aRandomUid§f: §b"},{"score":{"objective":"cre:uid","name":"@s"}},{"text":" §aPos§f: §7(§b"},{"score":{"objective":"cre:posx","name":"@s"}},{"text":"§f,§b"},{"score":{"objective":"cre:posy","name":"@s"}},{"text":"§f,§b"},{"score":{"objective":"cre:posz","name":"@s"}},{"text":"§7) §aDimension§f: §b"},{"score":{"objective":"dimension","name":"@s"}}]}
+tellraw @a[tag=cre:GetPosInfo] {"rawtext":[{"text":"§bSendMessage = Successful\n§f=========="}]}
+#sendmessage

@@ -1,0 +1,29 @@
+本系统的启动函数为TestBlock/run，检测范围为全体玩家的(~-5,~-5,~-5)到(~5,~5,~5)位置。
+如果您有兴趣，可以自行魔改本指令系统以适用您的实际情况。
+对于租赁服使用，为减少卡顿，您应当使用遍历版本。当然，如果您还是希望一次性检测全体玩家，那么请适当使用递归。
+
+额外说明：
+1. TestBlock/main中的minecraft:fire是被检测方块，您可以更换为您喜爱的方块。
+2. 除此之外，TestBlock/main里面有以下几条指令，您可以适当调整：
+execute @e[tag="",name=TestBlockEntity,type=armor_stand] ~ ~ ~ summon chicken
+execute @e[tag="",name=TestBlockEntity,type=armor_stand] ~ ~ ~ setblock ~ ~ ~ minecraft:glass
+以上几条指令的作用就是在火的位置生成鸡，然后再在火的地方放置玻璃。
+
+细心的命令师应当发现，指令有些冗杂……
+这是因为：
+1. Structure命令存在一些bug。为了规避这些问题，所以没有选择Structure命令的只保存方块或只保存实体的功能。
+2. 本指令系统以“火”作为被检测方块，而“火”方块本身就是一种特殊方块——如果其因为某种bug浮空，那么在复制或重载结构后便会消失。
+
+P.S.
+实际上这是为了解决浮空火问题而制作的模板。
+不过仔细一想，实际上解决浮空火问题很简单，压根不需要这个指令系统(你应该会吧？)。
+不过，你应该注意到了，在某些情况下，会出现“无法访问世界外的方块”的问题——我懒得解决了，您自行魔改吧。
+什么，你说这个系统可能会造成卡顿——这是肯定的，但我已经全力优化了，至少，只有在火方块出现时才会执行方块更改。
+你应该还能优化吧？
+
+
+
+Author: Happy2018new(QQ 3527679800)
+Date: 2022/05/02 Aft(ernoon)
+Leave Word: Why is it so?
+Something May Important For You: https://bugs.mojang.com/browse/MCPE-144870

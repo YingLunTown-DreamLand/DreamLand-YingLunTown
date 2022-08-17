@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Get_true_rx_scores",
+        "name": "The actual value of the rotation angle of the RX axis is obtained",
+        "uuid": "53d40a12-8fa4-4a6f-9eff-19ca973650ba",
+        "version": [ 1, 0, 5 ],
+        "min_engine_version": [ 1, 14, 0 ]
+    },
+    "modules": [
+        {
+            "description": "Get_true_rx_scores",
+            "type": "data",
+            "uuid": "68ce3135-a326-47a5-91d0-9c635b1e3e86",
+            "version": [1, 0, 5]
+        }
+    ]
+}

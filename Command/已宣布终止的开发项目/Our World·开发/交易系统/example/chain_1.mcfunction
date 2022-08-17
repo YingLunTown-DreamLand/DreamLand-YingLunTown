@@ -1,0 +1,1 @@
+scoreboard players operation save buy:execute = @e[tag=buy:item_change_to_coin_helper] buy:execute

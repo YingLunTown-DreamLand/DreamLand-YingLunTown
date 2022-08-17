@@ -1,0 +1,16 @@
+execute @a[scores={lswk:player=1}] ~~~execute @e[type=item,name=铁矿石,ry=0,rym=0,c=1,r=5] ~~~summon armor_stand ~~32767~
+execute @a[scores={lswk:player=1}] ~~~execute @e[type=item,name=铁矿石,ry=0,rym=0,c=1,r=5] ~~~tag @e[type=armor_stand,y=~32767,c=1] add lswk:iron_ore_do
+execute @a[scores={lswk:player=1}] ~~~execute @e[type=item,name=铁矿石,ry=0,rym=0,c=1,r=5] ~~~tag @e[type=armor_stand,y=~32767,c=1] add lswk:not_particle
+execute @e[tag=lswk:iron_ore_willdo] ~~~tag @s add lswk:can_not_move
+//0
+execute @e[name=铁矿石,type=item,ry=0,rym=0] ~~~tp~~~~1
+//1
+tag @e[tag=lswk:iron_ore_willdo,tag=!lswk:iron_ore_do] add lswk:iron_ore_do
+execute @e[tag=lswk:iron_ore_do,tag=!lswk:not_particle] ~~~summon armor_stand ~~~
+execute @e[tag=lswk:iron_ore_do,tag=!lswk:not_particle] ~~~tag @e[type=armor_stand,dx=0,dy=0,dz=0,tag=!lswk:particle] add lswk:particle
+//2
+execute @e[tag=lswk:iron_ore_do] ~~~function iron_ore_summon
+//3
+execute @e[name=lswk:test_min_entity_number,type=armor_stand,scores={lswk:so_big=1..255}] ~~~function so_big
+execute @e[tag=lswk:iron_ore_willdo,c=1] ~~~function iron_ore
+//4

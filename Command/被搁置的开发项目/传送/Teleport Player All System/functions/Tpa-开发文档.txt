@@ -1,0 +1,1152 @@
+<<<<<<< HEAD
+Tpa开发文档(标签、计分板、变量及非玩家实体)
+#Author:Happy2018new
+#This txt Only for Creators.
+#致敬RE:CREATORS!
+*文件uid.mcfunction、文件getpos.mcfunction、文件dimension.mcfunction 的相关内容不写入本文档(它们将作为 已封装 的api/system使用)
+*其中，文件uid.mcfunction、文件dimension.mcfunction 是通用型api/system；文件getpos.mcfunction 是本系统专用api/system
+
+
+
+
+
+文件run.mcfunction
+ 计分板(Scoreboards):
+  1. tpa:prepare - 用于本系统初始化
+  2. uid - 用于储存玩家唯一标识符
+  3. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+  4. tpa:request_num - 用于记录玩家的已请求数
+  5. tpa:timeout - 用于存放请求/会话的失效时间
+
+ 变量(计分项):
+  1. prepare(位于tpa:prepare) - 用于本系统初始化(分数=0为未初始化，分数=1为已初始化)
+
+
+
+文件scoreboard_add.mcfunction
+ 计分板(Scoreboards):
+  1. uid - 用于储存玩家唯一标识符
+  2. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+  3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+  4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+  5. tpa:request_num - 用于记录玩家的已请求数
+  6. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+  7. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+  8. tpa:timeout - 用于存放请求/会话的失效时间
+  9. tpa:wait - 用于更改朝向后的延迟处理
+  10. tpa:screen - 用于记录菜单指针位置
+  11. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+  12. tpa:kill_time - 用于存放代表实体失效的倒计时
+  13. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+  14. tpa:data_save - 用于存放本系统产生的长期数据
+  15. tpa:log_EventId - 用于存放日志：事件ID
+  16. tpa:log_uid_r - 用于存放日志：请求者UID
+  17. tpa:log_uid_t - 用于存放日志：被请求者UID
+  18. tpa:log_posx_r - 用于存放日志：请求者X轴坐标
+  19. tpa:log_posy_r - 用于存放日志：请求者Y轴坐标
+  20. tpa:log_posz_r - 用于存放日志：请求者Z轴坐标
+  21. tpa:log_posx_t - 用于存放日志：被请求者X轴坐标
+  22. tpa:log_posy_t - 用于存放日志：被请求者Y轴坐标
+  23. tpa:log_posz_t - 用于存放日志：被请求者Z轴坐标
+  24. tpa:log_d_r - 用于存放日志：请求者所在维度信息
+  25. tpa:log_d_t - 用于存放日志：被请求者所在维度信息
+  26. tpa:log_t_y - 用于存放日志：服务器时间-年份
+  27. tpa:log_t_mo - 用于存放日志：服务器时间-月份
+  28. tpa:log_t_d - 用于存放日志：服务器时间-天数
+  29. tpa:log_t_h - 用于存放日志：服务器时间-小时
+  30. tpa:log_t_mi - 用于存放日志：服务器时间-分钟
+  31. tpa:log_t_s - 用于存放日志：服务器时间-秒钟
+  32. tpa:log_t_t - 用于存放日志：服务器时间-游戏刻
+  33. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+  34. tpa:setting_26 - 储存本系统第3个选项的设置状态(tpa:screen=26用于控制该选项)
+  35. tpa:countdown - 用于显示倒计时
+
+ 变量(计分项):
+  1. request(位于tpa:timeout) - 用于储存发起请求后请求失效的时间
+  2. allow(位于tpa:timeout) - 用于储存接受请求后会话失效的时间
+  3. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+
+
+文件夹settings
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+   2. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   3. tpa:setting_26 - 储存本系统第3个选项的设置状态(tpa:screen=26用于控制该选项)
+
+
+
+文件夹actionbar
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+
+  标签(Tags):
+   1. tpa:wait - 需要被延迟处理的玩家获得本标签
+   2. tpa:user - 使用本系统的玩家获得本标签
+   3. tpa:u_allow_law - 遵守本系统相关条款和规定的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+
+
+ 文件change_player.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen - 用于记录菜单指针位置
+   2. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   3. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   6. uid - 用于储存玩家唯一标识符
+
+  标签(Tags):
+   1. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   2. tpa:er_ergodic - 需要被切换显示对象的玩家后被遍历获得本标签
+   3. tpa:ere_allow_0 - 满足分数条件的玩家获得本标签(切换当前显示对象模块)
+   4. tpa:ere_true - 当所有条件满足时获得本标签(切换当前显示对象模块)
+   5. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   6. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+   7. tpa:ere_false - 当有条件不满足时获得本标签(切换当前显示对象模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件ChangePlayerReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:screen - 用于记录菜单指针位置
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   7. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   8. tpa:countdown - 用于显示倒计时
+
+  标签(Tags):
+   1. tpa:ere_true - 当所有条件满足时获得本标签(切换当前显示对象模块)
+   2. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   3. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   4. tpa:eret_changed - 面板上输入的uid整型数值若更改则被遍历者获得本标签
+   5. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:er_ergodic - 需要被切换显示对象的玩家后被遍历获得本标签
+   8. tpa:list - 待进一步筛选的显示列内的代表实体获得本标签
+   9. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件wait.mcfunction
+  计分板(Scoreboards):
+   1. tpa:wait - 用于更改朝向后的延迟处理
+
+  标签(Tags):
+   1. tpa:wait - 需要被延迟处理的玩家获得本标签
+
+
+ 文件time.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+
+  标签(Tags):
+   1. tpa:user - 使用本系统的玩家获得本标签
+   2. tpa:u_allow_law - 遵守本系统相关条款和规定的玩家获得本标签
+   3. tpa:run_actionbar - 应当刷新Title-Actionbar显示的玩家获得本标签
+
+
+
+文件夹teleport
+ 文件main.mcfunction
+  标签(Tags):
+   1. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   2. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   3. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   4. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   5. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+
+
+ 文件execute.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   2. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   3. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   4. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   5. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   6. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   7. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+   8. tpa:ute_true - 当所有条件满足时获得本标签(执行模块)
+   9. tpa:ute_false - 当有条件不满足时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件ExecuteReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+   5. server_time - 用于存放服务器时间
+   6. tpa:data_save - 用于存放本系统产生的长期数据
+   7. tpa:log_EventId - 用于存放日志：事件ID
+   8. tpa:log_uid_r - 用于存放日志：请求者UID
+   9. tpa:log_uid_t - 用于存放日志：被请求者UID
+   10. tpa:log_posx_r - 用于存放日志：请求者X轴坐标
+   11. tpa:log_posy_r - 用于存放日志：请求者Y轴坐标
+   12. tpa:log_posz_r - 用于存放日志：请求者Z轴坐标
+   13. tpa:log_posx_t - 用于存放日志：被请求者X轴坐标
+   14. tpa:log_posy_t - 用于存放日志：被请求者Y轴坐标
+   15. tpa:log_posz_t - 用于存放日志：被请求者Z轴坐标
+   16. tpa:log_d_r - 用于存放日志：请求者所在维度信息
+   17. tpa:log_d_t - 用于存放日志：被请求者所在维度信息
+   18. tpa:log_t_y - 用于存放日志：服务器时间-年份
+   19. tpa:log_t_mo - 用于存放日志：服务器时间-月份
+   20. tpa:log_t_d - 用于存放日志：服务器时间-天数
+   21. tpa:log_t_h - 用于存放日志：服务器时间-小时
+   22. tpa:log_t_mi - 用于存放日志：服务器时间-分钟
+   23. tpa:log_t_s - 用于存放日志：服务器时间-秒钟
+   24. tpa:log_t_t - 用于存放日志：服务器时间-游戏刻
+   25. dimension - 用于存放玩家所在维度信息
+   26. tpa:posx - 用于存放获得的X轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   27. tpa:posy - 用于存放获得的Y轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   28. tpa:posz - 用于存放获得的Z轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   29. tpa:request_num - 用于记录玩家的已请求数
+   30. administrator - 用于存放管理员键值的计分板[外部api/system]
+
+  变量(计分项):
+   1. year(位于server_time) - 用于存放服务器时间：年份
+   2. month(位于server_time) - 用于存放服务器时间：月份
+   3. day(位于server_time) - 用于存放服务器时间：天数
+   4. hour(位于server_time) - 用于存放服务器时间：小时
+   5. minute(位于server_time) - 用于存放服务器时间：分钟
+   6. second(位于server_time) - 用于存放服务器时间：秒钟
+   7. tick(位于server_time) - 用于存放服务器时间：游戏刻
+   8. execute_num(位于tpa:data_save) - 用于存放玩家执行传送会话的总数
+
+  标签(Tags):
+   1. tpa:ete_true - 当所有条件满足时获得本标签(执行模块)
+   2. tpa:exit_all - 需要被关闭菜单的玩家获得本标签(仅对“执行传送”模块开放的api)
+   3. tpa:user - 使用本系统的玩家获得本标签
+   4. s_m:user - 使用雪球菜单的玩家拥有该标签[外部system/api]
+   5. menu_all:using - 被标记正在使用任意菜单的玩家拥有该标签[本系统与外部system/api的接口]
+   6. tpa:getpos - 需要被取得坐标的玩家拥有本标签[依赖于已嵌入本系统的getpos.mcfunction]
+   7. tpa:getpos_request - 在getpos系统中用于标记是请求者的玩家[依赖于已嵌入本系统的getpos.mcfunction]
+   8. tpa:getpos_target - 在getpos系统中用于标记是被请求者的玩家[依赖于已嵌入本系统的getpos.mcfunction]
+   9. tpa:log_writing - 正在被写入数据的新生成的日志实体获得本标签
+   10. tpa:log_save_place - 记录日志实体存放位置的实体获得本标签
+   11. tpa:log - 用于储存传送日志的实体获得本标签
+   12. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   13. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   14. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   15. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   16. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+   2. tpa:log - 用于储存传送日志的实体
+   3. tpa:log_save_place - 记录日志实体存放位置的实体[需要外部生成]
+
+
+ 文件ExecuteReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+   4. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+
+  标签(Tags):
+   1. tpa:ute_false - 当有条件不满足时获得本标签(执行模块)
+   2. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   7. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   8. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   9. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件undo.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   2. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   3. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   4. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   5. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   6. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   7. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+   8. tpa:ute_true - 当所有条件满足时获得本标签(撤销模块)
+   9. tpa:ute_false - 当有条件不满足时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件UndoReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:wait - 用于更改朝向后的延迟处理
+   5. tpa:request_num - 用于记录玩家的已请求数
+
+  标签(Tags):
+   1. tpa:ute_true - 当所有条件满足时获得本标签(撤销模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   6. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   7. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   8. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   9. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件UndoReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:ute_false - 当有条件不满足时获得本标签(撤销模块)
+   2. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   7. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   8. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   9. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDown.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   2. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   3. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   4. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   5. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   6. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+   7. tpa:tdte_true - 当所有条件满足时获得本标签(拒绝模块)
+   8. tpa:tdte_false - 当有条件不满足时获得本标签(拒绝模块)
+   9. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDownReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:wait - 用于更改朝向后的延迟处理
+   5. tpa:request_num - 用于记录玩家的已请求数
+
+  标签(Tags):
+   1. tpa:tdte_true - 当所有条件满足时获得本标签(拒绝模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   6. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   7. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   8. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   9. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDownReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   6. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+   7. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   8. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   9. tpa:tdte_false - 当有条件不满足时获得本标签(拒绝模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件allow.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:kill_time - 用于存放代表实体失效的倒计时
+   6. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+
+  标签(Tags):
+   1. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   2. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+   3. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   4. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   5. tpa:ate_allow_6 - 当代表请求者的代表实体未失效时获得本标签(接受模块)
+   6. tpa:ate_true - 当所有条件满足时获得本标签(接受模块)
+   7. tpa:ate_false - 当有条件不满足时获得本标签(接受模块)
+   8. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   9. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件AllowReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:kill_time - 用于存放代表实体失效的倒计时
+   2. tpa:timeout - 用于存放请求/会话的失效时间
+   3. tpa:wait - 用于更改朝向后的延迟处理
+
+  变量(计分项):
+   1. allow(位于tpa:timeout) - 用于储存接受请求后会话失效的时间
+   2. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+  标签(Tags):
+   1. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+   2. tpa:ate_true - 当所有条件满足时获得本标签(接受模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   7. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   8. tpa:ate_allow_6 - 当代表请求者的代表实体未失效时获得本标签(接受模块)
+   9. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   10. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件AllowReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:wait - 用于更改朝向后的延迟处理
+   2. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   6. tpa:ate_false - 当有条件不满足时获得本标签(接受模块)
+   7. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   8. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件request.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   3. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+   4. tpa:request_num - 用于记录玩家的已请求数
+   5. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   6. uid - 用于储存玩家唯一标识符
+   7. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+
+  标签(Tags):
+   1. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   2. tpa:rt_ergodic - 玩家发送传送请求后被遍历获得本标签
+   3. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   4. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   5. tpa:rte_allow_2 - 当代表实体存在时获得本标签(请求模块)
+   6. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+   7. tpa:rte_true - 当所有条件满足时获得本标签(请求模块)
+   8. tpa:rte_false - 当有条件不满足时获得本标签(请求模块)
+   9. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件RequestReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   2. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   5. tpa:wait - 用于更改朝向后的延迟处理
+   6. tpa:screen - 用于记录菜单指针位置
+   7. tpa:request_num - 用于记录玩家的已请求数
+   8. tpa:kill_time - 用于存放代表实体失效的倒计时
+   9. tpa:timeout - 用于存放请求/会话的失效时间
+   10. uid - 用于储存玩家唯一标识符
+
+  变量(计分项):
+   1. request(位于tpa:timeout) - 用于储存发起请求后请求失效的时间
+   2. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+  标签(Tags):
+   1. tpa:rte_true - 当所有条件满足时获得本标签(请求模块)
+   2. tpa:uid_save_writing - 正在被写入数据的新生成的代表实体获得本标签
+   3. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   4. tpa:entity_save_place - 记录代表实体存放位置的实体获得本标签
+   5. tpa:wait - 需要被延迟处理的玩家获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   8. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   9. tpa:rt_ergodic - 玩家发送传送请求后被遍历获得本标签
+   10. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   11. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+   2. tpa:entity_save_place - 记录代表实体存放位置的实体[需要外部生成]
+
+
+ 文件RequestReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+   3. tpa:wait - 用于更改朝向后的延迟处理
+   4. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:rte_false - 当有条件不满足时获得本标签(请求模块)
+   2. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   3. tpa:rte_allow_2 - 当代表实体存在时获得本标签(请求模块)
+   4. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+   5. tpa:wait - 需要被延迟处理的玩家获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   8. tpa:run_actionbar - 应当刷新Title-Actionbar显示的玩家获得本标签
+
+
+
+文件夹wall
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+=======
+Tpa开发文档(标签、计分板、变量及非玩家实体)
+#Author:Happy2018new
+#This txt Only for Creators.
+#致敬RE:CREATORS!
+*文件uid.mcfunction、文件getpos.mcfunction、文件dimension.mcfunction 的相关内容不写入本文档(它们将作为 已封装 的api/system使用)
+*其中，文件uid.mcfunction、文件dimension.mcfunction 是通用型api/system；文件getpos.mcfunction 是本系统专用api/system
+
+
+
+
+
+文件run.mcfunction
+ 计分板(Scoreboards):
+  1. tpa:prepare - 用于本系统初始化
+  2. uid - 用于储存玩家唯一标识符
+  3. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+  4. tpa:request_num - 用于记录玩家的已请求数
+  5. tpa:timeout - 用于存放请求/会话的失效时间
+
+ 变量(计分项):
+  1. prepare(位于tpa:prepare) - 用于本系统初始化(分数=0为未初始化，分数=1为已初始化)
+
+
+
+文件scoreboard_add.mcfunction
+ 计分板(Scoreboards):
+  1. uid - 用于储存玩家唯一标识符
+  2. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+  3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+  4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+  5. tpa:request_num - 用于记录玩家的已请求数
+  6. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+  7. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+  8. tpa:timeout - 用于存放请求/会话的失效时间
+  9. tpa:wait - 用于更改朝向后的延迟处理
+  10. tpa:screen - 用于记录菜单指针位置
+  11. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+  12. tpa:kill_time - 用于存放代表实体失效的倒计时
+  13. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+  14. tpa:data_save - 用于存放本系统产生的长期数据
+  15. tpa:log_EventId - 用于存放日志：事件ID
+  16. tpa:log_uid_r - 用于存放日志：请求者UID
+  17. tpa:log_uid_t - 用于存放日志：被请求者UID
+  18. tpa:log_posx_r - 用于存放日志：请求者X轴坐标
+  19. tpa:log_posy_r - 用于存放日志：请求者Y轴坐标
+  20. tpa:log_posz_r - 用于存放日志：请求者Z轴坐标
+  21. tpa:log_posx_t - 用于存放日志：被请求者X轴坐标
+  22. tpa:log_posy_t - 用于存放日志：被请求者Y轴坐标
+  23. tpa:log_posz_t - 用于存放日志：被请求者Z轴坐标
+  24. tpa:log_d_r - 用于存放日志：请求者所在维度信息
+  25. tpa:log_d_t - 用于存放日志：被请求者所在维度信息
+  26. tpa:log_t_y - 用于存放日志：服务器时间-年份
+  27. tpa:log_t_mo - 用于存放日志：服务器时间-月份
+  28. tpa:log_t_d - 用于存放日志：服务器时间-天数
+  29. tpa:log_t_h - 用于存放日志：服务器时间-小时
+  30. tpa:log_t_mi - 用于存放日志：服务器时间-分钟
+  31. tpa:log_t_s - 用于存放日志：服务器时间-秒钟
+  32. tpa:log_t_t - 用于存放日志：服务器时间-游戏刻
+  33. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+  34. tpa:setting_26 - 储存本系统第3个选项的设置状态(tpa:screen=26用于控制该选项)
+  35. tpa:countdown - 用于显示倒计时
+
+ 变量(计分项):
+  1. request(位于tpa:timeout) - 用于储存发起请求后请求失效的时间
+  2. allow(位于tpa:timeout) - 用于储存接受请求后会话失效的时间
+  3. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+
+
+文件夹settings
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+   2. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   3. tpa:setting_26 - 储存本系统第3个选项的设置状态(tpa:screen=26用于控制该选项)
+
+
+
+文件夹actionbar
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+
+  标签(Tags):
+   1. tpa:wait - 需要被延迟处理的玩家获得本标签
+   2. tpa:user - 使用本系统的玩家获得本标签
+   3. tpa:u_allow_law - 遵守本系统相关条款和规定的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+
+
+ 文件change_player.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen - 用于记录菜单指针位置
+   2. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   3. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   6. uid - 用于储存玩家唯一标识符
+
+  标签(Tags):
+   1. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   2. tpa:er_ergodic - 需要被切换显示对象的玩家后被遍历获得本标签
+   3. tpa:ere_allow_0 - 满足分数条件的玩家获得本标签(切换当前显示对象模块)
+   4. tpa:ere_true - 当所有条件满足时获得本标签(切换当前显示对象模块)
+   5. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   6. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+   7. tpa:ere_false - 当有条件不满足时获得本标签(切换当前显示对象模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件ChangePlayerReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:screen - 用于记录菜单指针位置
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   7. tpa:setting_27 - 储存本系统第4个选项的设置状态(tpa:screen=27用于控制该选项)
+   8. tpa:countdown - 用于显示倒计时
+
+  标签(Tags):
+   1. tpa:ere_true - 当所有条件满足时获得本标签(切换当前显示对象模块)
+   2. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   3. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   4. tpa:eret_changed - 面板上输入的uid整型数值若更改则被遍历者获得本标签
+   5. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:er_ergodic - 需要被切换显示对象的玩家后被遍历获得本标签
+   8. tpa:list - 待进一步筛选的显示列内的代表实体获得本标签
+   9. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件wait.mcfunction
+  计分板(Scoreboards):
+   1. tpa:wait - 用于更改朝向后的延迟处理
+
+  标签(Tags):
+   1. tpa:wait - 需要被延迟处理的玩家获得本标签
+
+
+ 文件time.mcfunction
+  计分板(Scoreboards):
+   1. tpa:screen_time - 用于菜单延迟显示(减少卡顿)
+
+  标签(Tags):
+   1. tpa:user - 使用本系统的玩家获得本标签
+   2. tpa:u_allow_law - 遵守本系统相关条款和规定的玩家获得本标签
+   3. tpa:run_actionbar - 应当刷新Title-Actionbar显示的玩家获得本标签
+
+
+
+文件夹teleport
+ 文件main.mcfunction
+  标签(Tags):
+   1. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   2. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   3. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   4. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   5. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+
+
+ 文件execute.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   2. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   3. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   4. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   5. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   6. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   7. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+   8. tpa:ute_true - 当所有条件满足时获得本标签(执行模块)
+   9. tpa:ute_false - 当有条件不满足时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件ExecuteReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:setting_28 - 储存本系统第5个选项的设置状态(tpa:screen=28用于控制该选项)
+   5. server_time - 用于存放服务器时间
+   6. tpa:data_save - 用于存放本系统产生的长期数据
+   7. tpa:log_EventId - 用于存放日志：事件ID
+   8. tpa:log_uid_r - 用于存放日志：请求者UID
+   9. tpa:log_uid_t - 用于存放日志：被请求者UID
+   10. tpa:log_posx_r - 用于存放日志：请求者X轴坐标
+   11. tpa:log_posy_r - 用于存放日志：请求者Y轴坐标
+   12. tpa:log_posz_r - 用于存放日志：请求者Z轴坐标
+   13. tpa:log_posx_t - 用于存放日志：被请求者X轴坐标
+   14. tpa:log_posy_t - 用于存放日志：被请求者Y轴坐标
+   15. tpa:log_posz_t - 用于存放日志：被请求者Z轴坐标
+   16. tpa:log_d_r - 用于存放日志：请求者所在维度信息
+   17. tpa:log_d_t - 用于存放日志：被请求者所在维度信息
+   18. tpa:log_t_y - 用于存放日志：服务器时间-年份
+   19. tpa:log_t_mo - 用于存放日志：服务器时间-月份
+   20. tpa:log_t_d - 用于存放日志：服务器时间-天数
+   21. tpa:log_t_h - 用于存放日志：服务器时间-小时
+   22. tpa:log_t_mi - 用于存放日志：服务器时间-分钟
+   23. tpa:log_t_s - 用于存放日志：服务器时间-秒钟
+   24. tpa:log_t_t - 用于存放日志：服务器时间-游戏刻
+   25. dimension - 用于存放玩家所在维度信息
+   26. tpa:posx - 用于存放获得的X轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   27. tpa:posy - 用于存放获得的Y轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   28. tpa:posz - 用于存放获得的Z轴坐标[依赖于已嵌入本系统的getpos.mcfunction]
+   29. tpa:request_num - 用于记录玩家的已请求数
+   30. administrator - 用于存放管理员键值的计分板[外部api/system]
+
+  变量(计分项):
+   1. year(位于server_time) - 用于存放服务器时间：年份
+   2. month(位于server_time) - 用于存放服务器时间：月份
+   3. day(位于server_time) - 用于存放服务器时间：天数
+   4. hour(位于server_time) - 用于存放服务器时间：小时
+   5. minute(位于server_time) - 用于存放服务器时间：分钟
+   6. second(位于server_time) - 用于存放服务器时间：秒钟
+   7. tick(位于server_time) - 用于存放服务器时间：游戏刻
+   8. execute_num(位于tpa:data_save) - 用于存放玩家执行传送会话的总数
+
+  标签(Tags):
+   1. tpa:ete_true - 当所有条件满足时获得本标签(执行模块)
+   2. tpa:exit_all - 需要被关闭菜单的玩家获得本标签(仅对“执行传送”模块开放的api)
+   3. tpa:user - 使用本系统的玩家获得本标签
+   4. s_m:user - 使用雪球菜单的玩家拥有该标签[外部system/api]
+   5. menu_all:using - 被标记正在使用任意菜单的玩家拥有该标签[本系统与外部system/api的接口]
+   6. tpa:getpos - 需要被取得坐标的玩家拥有本标签[依赖于已嵌入本系统的getpos.mcfunction]
+   7. tpa:getpos_request - 在getpos系统中用于标记是请求者的玩家[依赖于已嵌入本系统的getpos.mcfunction]
+   8. tpa:getpos_target - 在getpos系统中用于标记是被请求者的玩家[依赖于已嵌入本系统的getpos.mcfunction]
+   9. tpa:log_writing - 正在被写入数据的新生成的日志实体获得本标签
+   10. tpa:log_save_place - 记录日志实体存放位置的实体获得本标签
+   11. tpa:log - 用于储存传送日志的实体获得本标签
+   12. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   13. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   14. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   15. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   16. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+   2. tpa:log - 用于储存传送日志的实体
+   3. tpa:log_save_place - 记录日志实体存放位置的实体[需要外部生成]
+
+
+ 文件ExecuteReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+   4. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+
+  标签(Tags):
+   1. tpa:ute_false - 当有条件不满足时获得本标签(执行模块)
+   2. tpa:ete_allow_7 - 当目标玩家存在时获得本标签(执行模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:execute_teleport - 玩家执行传送请求后获得本标签
+   7. tpa:et_ergodic - 玩家执行传送请求后被遍历获得本标签
+   8. tpa:ete_allow_8 - 当代表实体存在时获得本标签(执行模块)
+   9. tpa:ete_allow_9 - 当代表请求者的代表实体未失效时获得本标签(执行模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件undo.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   5. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   2. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   3. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   4. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   5. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   6. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   7. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+   8. tpa:ute_true - 当所有条件满足时获得本标签(撤销模块)
+   9. tpa:ute_false - 当有条件不满足时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件UndoReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:wait - 用于更改朝向后的延迟处理
+   5. tpa:request_num - 用于记录玩家的已请求数
+
+  标签(Tags):
+   1. tpa:ute_true - 当所有条件满足时获得本标签(撤销模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   6. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   7. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   8. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   9. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件UndoReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:ute_false - 当有条件不满足时获得本标签(撤销模块)
+   2. tpa:ute_allow_16 - 当目标玩家存在时获得本标签(撤销模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:undo_teleport - 玩家撤销传送请求后获得本标签
+   7. tpa:ut_ergodic - 玩家撤销传送请求后被遍历获得本标签
+   8. tpa:ute_allow_17 - 当代表实体存在时获得本标签(撤销模块)
+   9. tpa:ute_allow_18 - 当代表请求者的代表实体未失效时获得本标签(撤销模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDown.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   6. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   2. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   3. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   4. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   5. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   6. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+   7. tpa:tdte_true - 当所有条件满足时获得本标签(拒绝模块)
+   8. tpa:tdte_false - 当有条件不满足时获得本标签(拒绝模块)
+   9. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDownReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:wait - 用于更改朝向后的延迟处理
+   5. tpa:request_num - 用于记录玩家的已请求数
+
+  标签(Tags):
+   1. tpa:tdte_true - 当所有条件满足时获得本标签(拒绝模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   6. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   7. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   8. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   9. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件TurnDownReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:wait - 用于更改朝向后的延迟处理
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:tdte_allow_13 - 当目标玩家存在时获得本标签(拒绝模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:tdte_allow_14 - 当代表实体存在时获得本标签(拒绝模块)
+   6. tpa:tdte_allow_15 - 当代表请求者的代表实体未失效时获得本标签(拒绝模块)
+   7. tpa:turn_down_teleport - 玩家拒绝传送请求后获得本标签
+   8. tpa:tdt_ergodic - 玩家拒绝传送请求后被遍历获得本标签
+   9. tpa:tdte_false - 当有条件不满足时获得本标签(拒绝模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件allow.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. uid - 用于储存玩家唯一标识符
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   5. tpa:kill_time - 用于存放代表实体失效的倒计时
+   6. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+
+  标签(Tags):
+   1. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   2. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+   3. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   4. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   5. tpa:ate_allow_6 - 当代表请求者的代表实体未失效时获得本标签(接受模块)
+   6. tpa:ate_true - 当所有条件满足时获得本标签(接受模块)
+   7. tpa:ate_false - 当有条件不满足时获得本标签(接受模块)
+   8. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+   9. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件AllowReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:kill_time - 用于存放代表实体失效的倒计时
+   2. tpa:timeout - 用于存放请求/会话的失效时间
+   3. tpa:wait - 用于更改朝向后的延迟处理
+
+  变量(计分项):
+   1. allow(位于tpa:timeout) - 用于储存接受请求后会话失效的时间
+   2. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+  标签(Tags):
+   1. tpa:mark_allow - 代表实体所代表的传送请求被接受后获得此标签
+   2. tpa:ate_true - 当所有条件满足时获得本标签(接受模块)
+   3. tpa:wait - 需要被延迟处理的玩家获得本标签
+   4. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   5. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   6. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   7. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   8. tpa:ate_allow_6 - 当代表请求者的代表实体未失效时获得本标签(接受模块)
+   9. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   10. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件AllowReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:wait - 用于更改朝向后的延迟处理
+   2. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   3. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:ate_allow_4 - 当目标玩家存在时获得本标签(接受模块)
+   2. tpa:wait - 需要被延迟处理的玩家获得本标签
+   3. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   4. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   5. tpa:ate_allow_5 - 当代表实体存在时获得本标签(接受模块)
+   6. tpa:ate_false - 当有条件不满足时获得本标签(接受模块)
+   7. tpa:allow_teleport - 玩家接受传送请求后获得本标签
+   8. tpa:at_ergodic - 玩家接受传送请求后被遍历获得本标签
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件request.mcfunction
+  计分板(Scoreboards):
+   1. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   2. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   3. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+   4. tpa:request_num - 用于记录玩家的已请求数
+   5. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   6. uid - 用于储存玩家唯一标识符
+   7. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+
+  标签(Tags):
+   1. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   2. tpa:rt_ergodic - 玩家发送传送请求后被遍历获得本标签
+   3. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   4. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   5. tpa:rte_allow_2 - 当代表实体存在时获得本标签(请求模块)
+   6. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+   7. tpa:rte_true - 当所有条件满足时获得本标签(请求模块)
+   8. tpa:rte_false - 当有条件不满足时获得本标签(请求模块)
+   9. tpa:ls_mark - 被临时标记的实体获得本标签(本标签是共享资源)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+
+
+ 文件RequestReturnTrue.mcfunction
+  计分板(Scoreboards):
+   1. tpa:uid_save_r - 代表实体用于储存uid(请求者のuid)的计分板
+   2. tpa:uid_save_t - 代表实体用于储存uid(目标玩家のuid)的计分板
+   3. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   4. tpa:math - 用于本系统临时计算(本计分板是共享资源)
+   5. tpa:wait - 用于更改朝向后的延迟处理
+   6. tpa:screen - 用于记录菜单指针位置
+   7. tpa:request_num - 用于记录玩家的已请求数
+   8. tpa:kill_time - 用于存放代表实体失效的倒计时
+   9. tpa:timeout - 用于存放请求/会话的失效时间
+   10. uid - 用于储存玩家唯一标识符
+
+  变量(计分项):
+   1. request(位于tpa:timeout) - 用于储存发起请求后请求失效的时间
+   2. ratio(位于tpa:timeout) - 用于储存请求或会话被转换为游戏刻(Tick)的换算倍率
+
+  标签(Tags):
+   1. tpa:rte_true - 当所有条件满足时获得本标签(请求模块)
+   2. tpa:uid_save_writing - 正在被写入数据的新生成的代表实体获得本标签
+   3. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+   4. tpa:entity_save_place - 记录代表实体存放位置的实体获得本标签
+   5. tpa:wait - 需要被延迟处理的玩家获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   8. tpa:request_teleport - 玩家发送传送请求后获得本标签
+   9. tpa:rt_ergodic - 玩家发送传送请求后被遍历获得本标签
+   10. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   11. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+
+  实体(Entities):
+   1. tpa:uid_save - 用于储存uid数据的代表实体
+   2. tpa:entity_save_place - 记录代表实体存放位置的实体[需要外部生成]
+
+
+ 文件RequestReturnFalse.mcfunction
+  计分板(Scoreboards):
+   1. tpa:panel_int - 用于储存面板上输入的uid整型数值
+   2. tpa:r_num_max - 用于存放玩家可产生的代表实体的最大整型数值
+   3. tpa:wait - 用于更改朝向后的延迟处理
+   4. tpa:screen - 用于记录菜单指针位置
+
+  标签(Tags):
+   1. tpa:rte_false - 当有条件不满足时获得本标签(请求模块)
+   2. tpa:rte_allow_1 - 当目标玩家存在时获得本标签(请求模块)
+   3. tpa:rte_allow_2 - 当代表实体存在时获得本标签(请求模块)
+   4. tpa:rte_allow_3 - 当请求者的未失效的总请求数未达到上限时获得本标签(请求模块)
+   5. tpa:wait - 需要被延迟处理的玩家获得本标签
+   6. tpa:change_player - 需要切换显示对象的玩家获得本标签
+   7. tpa:change_player_system - 需要切换显示对象的玩家获得本标签(自动模式)
+   8. tpa:run_actionbar - 应当刷新Title-Actionbar显示的玩家获得本标签
+
+
+
+文件夹wall
+ 文件main.mcfunction
+  计分板(Scoreboards):
+   1. tpa:kill_time - 用于存放代表实体失效的倒计时
+
+  标签(Tags):
+   1. tpa:uid_save - 用于储存uid数据的代表实体获得本标签
+
+  实体(Entities):
+>>>>>>> d95f919c53aa8612409504198bbed77f930d5f64
+   1. tpa:uid_save - 用于储存uid数据的代表实体

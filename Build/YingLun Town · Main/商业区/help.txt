@@ -1,0 +1,24 @@
+结构排列方式：
+6 3
+5 2
+4 1
+=======================================
+结构导出点：(16176,0,8303)
+实际观测点：导出点的Y=0~-3修正位置
+建筑作者：Unknown（未知）
+建筑导出者：Happy2018new
+建筑导出和重载时间：2021/07/08 15:10~15:45
+命令：
+tp 16176 -3 8303
+structure load syq_1 ~-63 0 ~
+tp ~-64 ~ ~
+structure load syq_2 ~-63 0 ~
+tp ~-64 ~ ~
+structure load syq_3 ~-63 0 ~
+tp 16176 -3 8303
+tp ~ ~ ~64
+structure load syq_4 ~-63 0 ~
+tp ~-64 ~ ~
+structure load syq_5 ~-63 0 ~
+tp ~-64 ~ ~
+structure load syq_6 ~-63 0 ~

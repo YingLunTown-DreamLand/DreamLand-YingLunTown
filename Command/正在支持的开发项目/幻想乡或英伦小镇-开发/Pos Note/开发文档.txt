@@ -1,0 +1,50 @@
+pos_note_run.mcfunction——本系统主函数
+开发文档.txt——本系统的开发文档
+pos_note——本系统必须加载项(非附加)
+     uid.mcfunction——分配UID
+          计分板：uid (用于保存玩家的UID；保存在玩家上)
+     pos——将产生的坐标日志写入到缓冲区
+          run.mcfunction——本模块主函数
+               非玩家实体：
+                   1. pos_note:test_area_was_loaded (用于确定该模块被遍历的玩家是否在加载区域内)
+                   2. pos_note:mark_entity (用于标记玩家位置的实体)
+               计分板：
+                    1. pos_note:math (用于临时计算；保存在非玩家实体上)
+                    2. pos_note:uid (用于保存玩家的UID；保存在非玩家实体上)
+               标签：
+                    1. pos_note:select_target (用于标记的标签；保存在1个玩家上)
+                    2. "pos_note:select_target/return_true" (当待遍历列表存在玩家时会分配的标签；保存在持有标签pos_note:select_target的玩家上)
+                    3. pos_note:select_list (在待遍历列表内的实体持有的标签；保存在玩家上)
+                    4. pos_note:is_selecting (正在被该模块遍历的玩家持有的标签；保存在玩家上)
+                    5. pos_note:duplicate_name (当有实体的名称与本模块将要生成的实体的名称相重复时被分配本标签；保存在非玩家实体上)
+                    6. "pos_note:is_selecting/area_was_loaded" (当本模块被遍历的实体在加载区域内时被分配本标签；保存在玩家上)
+                    7. pos_note:mark_entity (标记玩家位置的实体，这些实体位于本系统定义的区域中心；保存在非玩家实体上)
+                    8. "pos_note:is_selecting/in_area" (用于筛选带有标签"pos_note:mark_entity"的实体的标签；保存在非玩家实体上)
+                    9. "pos_note:is_selecting/stay" (用于判断实体是否需要获取坐标及执行附属功能项的标签；保存在玩家上)
+          change.mcfunction——将产生的坐标日志写入到缓冲区
+               非玩家实体：
+                    1. "pos_note:pos/change/math_helper" (辅助分数判断的实体)
+               计分板：
+                    1. pos_note:x (用于保存已被处理过的X轴坐标；保存在玩家上)
+                    2. pos_note:z (用于保存已被处理过的Z轴坐标；保存在玩家上)
+               标签：
+                    1. pos_note:is_selecting (正在被该模块遍历的玩家持有的标签；保存在玩家上)
+                    2. "pos_note:is_selecting/stay" (用于判断实体是否需要获取坐标及执行附属功能项的标签；保存在玩家上)
+                    3. pos_note:getpos (需要获取坐标的实体被分配本标签；保存在玩家上)
+                    4. pos_note:duplicate_name (当有实体的名称与本模块将要生成的实体的名称相重复时被分配本标签；保存在非玩家实体上)
+                    5. "pos_note:pos/change/math_helper" (辅助分数判断的实体持有的标签；保存在非玩家实体上)
+                    6. pos_note:uncreate_log (当被遍历的玩家不需要被创建日志时持有的标签；保存在玩家上)
+          getpos.mcfunction——获取坐标
+               非玩家实体：
+                    1. "pos_note:getpos/mark_target" (用于标记需要获取坐标的玩家的位置的实体)
+                    2. "pos_note:getpos/tp" (用于二分tp求坐标的实体)
+               计分板：
+                    1. pos_note:posx (用于保存X轴精确坐标；保存在实体上)
+                    2. pos_note:posz (用于保存Z轴精确坐标；保存在实体上)
+               标签：
+                    1. pos_note:getpos (需要获取坐标的实体被分配本标签；保存在玩家上)
+                    2. pos_note:duplicate_name (当有实体的名称与本模块将要生成的实体的名称相重复时被分配本标签；保存在非玩家实体上)
+                    3. "pos_note:getpos/mark_target" (标记需要获取坐标的玩家的位置的实体被分配本标签；保存在非玩家实体上)
+                    4. "pos_note:getpos/tp" (二分tp求坐标的实体被分配本标签；保存在非玩家实体上)
+                    5. "pos_note:getpos/x-" (标记需要获取坐标的玩家的位置的实体若位于X轴负半轴时被分配本标签；保存在非玩家实体上)
+                    6. "pos_note:getpos/z-" (标记需要获取坐标的玩家的位置的实体若位于Z轴负半轴时被分配本标签；保存在非玩家实体上)

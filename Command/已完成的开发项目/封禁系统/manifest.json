@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Made By Happy2018new",
+        "name": "Ban System",
+        "uuid": "9c26ab92-92d2-42dc-b4ea-3d6c578d4e8c",
+        "version": [ 1, 6, 1 ],
+        "min_engine_version": [ 1, 13, 0 ]
+    },
+    "modules": [
+        {
+            "description": "Made By Happy2018new",
+            "type": "data",
+            "uuid": "abd0bc77-5a7e-490f-bb98-dcaa9e862e52",
+            "version": [2, 1, 5]
+        }
+    ]
+}

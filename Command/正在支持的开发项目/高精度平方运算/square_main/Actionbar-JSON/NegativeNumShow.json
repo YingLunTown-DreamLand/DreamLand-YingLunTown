@@ -1,0 +1,15 @@
+{
+    "translate":"%%2",
+    "with":
+    {
+        "rawtext":
+        [
+            {
+                "selector":"@e[tag=square:fu]"
+            },
+            {
+                "text":"§7-"
+            }
+        ]
+    }
+}
