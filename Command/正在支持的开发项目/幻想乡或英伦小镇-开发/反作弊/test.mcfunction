@@ -31,7 +31,7 @@ execute @e[type=item,name="栓绳",rx=0,rxm=0,ry=0,rym=0] ~~~ tp @s @p[r=10,tag=
 tag @a[tag=fairy:choose2_fish] remove fairy:choose3_fish
 tag @a remove fairy:choose2_fish
 execute @a[tag=fairy:choose3_fish] ~~~ tag @s add fairy:violator
-execute @a[fairy:choose3_fish,tag=!aa] ~~~ tag @s remove fairy:choose2_fish
+execute @a[tag=fairy:choose3_fish] ~~~ tag @s remove fairy:choose2_fish
 tag @a remove fairy:choose3_fish
 
 #被检测出为外挂的玩家会持有标签"fairy:violator"
