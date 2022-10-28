@@ -1,0 +1,15 @@
+tag=localbuild:npc
+tag=localbuild:transfer_station
+tag=localbuild:tS_player
+tag=localbuild:teleport_successful
+## localBuild
+
+entity=localbuild:teleport_successful
+tag=localbuild:tp_true_entity
+tag=localbuild:tp_true_playsound
+## teleportSuccessful
+
+function=localBuildTeleport
+function=run
+function=teleportSuccessful
+## function
