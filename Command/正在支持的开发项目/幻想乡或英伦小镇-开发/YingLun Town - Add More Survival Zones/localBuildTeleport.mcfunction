@@ -6,7 +6,7 @@
 
 
 replaceitem entity @e[tag=localbuild:transfer_station] slot.armor.chest 0 keep minecraft:diamond_chestplate 1 32767
-# give the villager(npc) a will broken chest if the target slot is air
+# give the villager a will broken chest if the target slot is air
 
 # *** The following commands need condition to execute ***
 execute @e[tag=localbuild:transfer_station] ~ ~ ~ tag @p[r=5] add localbuild:tS_player
