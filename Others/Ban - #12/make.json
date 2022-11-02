@@ -1,0 +1,405 @@
+[
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 0,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "testfor @a[name=kono远古哒,c=1]",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "封禁远古(#12)",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 1,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "setblock ~ ~5 ~ chain_command_block 1",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": true,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 2,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "testfor @a[name=我系远古,c=1]",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 3,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "setblock ~ ~3 ~ chain_command_block 1",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": true,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 4,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "testfor @a[name=我不是远古,c=1]",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 5,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "setblock ~ ~1 ~ chain_command_block 1",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": true,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 6,
+        "name": "minecraft:air"
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 7,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "setblock ~ ~-1.0 ~ minecraft:air",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 8,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @e[type=minecraft:armor_stand] add banYG:unselect",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 9,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "summon minecraft:armor_stand \"https://github.c\"",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 10,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @e[type=minecraft:armor_stand,tag=\"\",c=1] add banYG:part1",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 11,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "summon minecraft:armor_stand \"om/Happy2018new/DreamLand-YingLunTown/issues/12\"",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 12,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @e[type=minecraft:armor_stand,tag=\"\",c=1] add banYG:part2",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 13,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[name=kono远古哒] add banYG:tag",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 14,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[name=我系远古] add banYG:tag",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 15,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[name=我不是远古] add banYG:tag",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 16,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "kick kono远古哒 You have banned from this server because of issue 12.\nSee @e[tag=banYG:part1]@e[tag=banYG:part2] for more infomation.",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 17,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "kick 我系远古 You have banned from this server because of issue 12.\nSee @e[tag=banYG:part1]@e[tag=banYG:part2] for more infomation.",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 18,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "kick 我不是远古 You have banned from this server because of issue 12.\nSee @e[tag=banYG:part1]@e[tag=banYG:part2] for more infomation.",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 19,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @e[type=minecraft:armor_stand,tag=!banYG:unselect] ~ ~ ~ tp ~ -32767.0 ~",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 20,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @e[type=minecraft:armor_stand,tag=!banYG:unselect] ~ ~ ~ kill @s",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 21,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @e[type=minecraft:armor_stand,tag=banYG:unselect] ~ ~ ~ tag @s remove banYG:unselect",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 22,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @e[tag=banYG:tag] ~ ~ ~ tag @s add kick:selector",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 20,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    }
+]
