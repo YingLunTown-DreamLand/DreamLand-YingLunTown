@@ -1,0 +1,6 @@
+tag=core:tnt_replace
+tag=core:tnt_replace_do_not_replace
+## 替换脚下方块为 TNT 方块
+
+tag=core:tnt_trigger
+## 引爆 TNT 方块

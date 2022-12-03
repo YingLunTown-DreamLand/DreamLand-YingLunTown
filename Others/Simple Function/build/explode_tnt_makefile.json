@@ -1,0 +1,74 @@
+[
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 0,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag \"Happy2018new\" add \"core:tnt_trigger\"",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "引爆 TNT",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 1,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[m=1,tag=core:tnt_trigger] remove core:tnt_trigger",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 2,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @a[tag=core:tnt_trigger] ~ ~ ~ summon minecraft:tnt ~ ~ ~",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 3,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[tag=core:tnt_trigger] remove core:tnt_trigger",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    }
+]

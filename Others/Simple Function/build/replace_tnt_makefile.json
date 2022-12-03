@@ -1,0 +1,146 @@
+[
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 0,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag \"Happy2018new\" add \"core:tnt_replace\"",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "生成 TNT",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 1,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[m=1,tag=core:tnt_replace] remove core:tnt_replace",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 2,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @a[tag=core:tnt_replace] ~ ~ ~ detect ~ ~-1.0 ~ minecraft:air -1 tag @s add core:tnt_replace_do_not_replace",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 3,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @a[tag=core:tnt_replace] ~ ~ ~ detect ~ ~-1.0 ~ minecraft:bedrock -1 tag @s add core:tnt_replace_do_not_replace",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 4,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @a[tag=core:tnt_replace,tag=!core:tnt_replace_do_not_replace] ~ ~ ~ setblock ~ ~-1.0 ~ minecraft:tnt 0",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 5,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "execute @a[tag=core:tnt_replace,tag=!core:tnt_replace_do_not_replace] ~ ~ ~ title @s actionbar §l§c追踪导弹§4已部署",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 6,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[tag=core:tnt_replace_do_not_replace] remove core:tnt_replace_do_not_replace",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    },
+    {
+        "z": 0,
+        "aux": 1,
+        "x": 0,
+        "y": 7,
+        "name": "minecraft:chain_command_block",
+        "cmddata": {
+            "lastOutput": "",
+            "command": "tag @a[tag=core:tnt_replace] remove core:tnt_replace",
+            "shouldTrackOutput": false,
+            "mode": "Tick",
+            "isConditional": false,
+            "executeOnFirstTick": false,
+            "tickDelay": 0,
+            "name": "",
+            "isRedStoneMode": false
+        }
+    }
+]
