@@ -1,0 +1,10 @@
+objective=explodeBed:time
+## scoreboard for entities
+tag=explodeBed:check_dimensions
+tag=explodeBed:is_in_nether
+tag=explodeBed:execute
+## for players
+tag=explodeBed:record_entity
+tag=clean_record_entity
+tag=explodeBed:itemMark
+## for entities
