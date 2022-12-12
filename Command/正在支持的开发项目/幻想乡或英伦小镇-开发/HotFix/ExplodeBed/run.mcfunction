@@ -25,7 +25,7 @@ execute @e[tag=explodeBed:record_entity] ~ ~ ~ kill @s[y=512,dy=-30000000]
 
 
 
-execute @a[tag=explodeBed:is_in_nether] ~ ~ ~ detect ~ ~ ~ minecraft:bed -1 tag @s add explodeBed:execute
+execute @a[tag=explodeBed:is_in_nether] ~ ~ ~ execute @s ~ ~ ~ detect ~ ~ ~ minecraft:bed -1 tag @s add explodeBed:execute
 execute @a[tag=explodeBed:execute,c=1] ~ ~ ~ tag @e[type=item] add explodeBed:itemMark
 execute @a[tag=explodeBed:execute] ~ ~ ~ setblock ~ ~ ~ minecraft:air 0 destroy
 execute @a[tag=explodeBed:execute] ~ ~ ~ kill @e[type=item,tag=!explodeBed:itemMark]
