@@ -44,10 +44,17 @@ execute @a[tag=explodeBed:execute] ~ ~ ~ tag @s remove explodeBed:execute
 execute @e[tag=explodeBed:record_entity] ~ ~ ~ scoreboard players add @s explodeBed:time 0
 execute @e[scores={explodeBed:time=0}] ~ ~ ~ scoreboard players random @s explodeBed:time 8 15
 execute @e[scores={explodeBed:time=2..}] ~ ~ ~ scoreboard players remove @s explodeBed:time 1
-execute @e[scores={explodeBed:time=..1}] ~ ~ ~ summon minecraft:tnt_minecart ~ ~-32767.0 ~ minecraft:on_instant_prime
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~-1 ~ ~
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~1 ~ ~
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~ ~ ~-1
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~ ~ ~1
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~ ~-1 ~
+execute @e[scores={explodeBed:time=..1}] ~ ~-32767.0 ~ structure load explodeBed:tnt ~ ~1 ~
 execute @e[scores={explodeBed:time=..1}] ~ ~ ~ tag @s add explodeBed:clean_record_entity
 execute @e[tag=explodeBed:clean_record_entity] ~ ~ ~ scoreboard players reset @s
 execute @e[tag=explodeBed:clean_record_entity] ~ ~ ~ kill @s
 # simulate an exploding bed
 # install this in the commandblockplace, as a repeating function
 # note: just repeat the first command
+# note: the structure named "explodeBed:tnt" is filled with an explode tnt which will explode on the next gametick
+# note: an explode tnt can exist for 81 gameticks, so you need to save an explode tnt on 80 gametick
