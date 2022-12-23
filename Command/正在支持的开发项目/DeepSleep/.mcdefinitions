@@ -1,0 +1,73 @@
+## depends/getItemFromChest
+
+
+
+objective=ds:itemLocation
+## 此计分板用于记录一个分数，用于访问指定箱子中的指定栏位上的物品
+
+objective=ds:chestPlace
+## 此计分板上记录的分数用于访问指定的箱子
+
+objective=ds:testPlayerNum
+## 本函数(depends/getItemFromChest)不一定安全，因为此时可能会处理超过 1 个以上的玩家，而这是非预期行为
+## 为了解决这个问题，需要这个计分板计算本函数(depends/getItemFromChest)处理的玩家数量。如果超过 1 个，则应该执行一些特定的行为
+
+
+
+tag=DeepSleep:getItemFromChest
+## 有此标签的玩家代表需要被调用 depends/getItemFromChest
+## 有此标签的玩家代表需要被切换题目(若无题目则亦使用此 API )
+
+tag=ds:chest_O_point
+## 默认 @e[tag=ds:chest_O_point] 代表的是第一个箱子上的实体，然后让这个实体向 x+ 方向移动以达到访问箱子的目的
+
+tag=DeepSleep:unclean
+## 打碎箱子后需要清理掉落物，不过我不希望清理到其他无关的掉落物了，因此在打碎箱子前对现有的掉落物做一个标记
+## 标记的范围只涉及 1 个方块内的区域，还是比较小的
+## 不过应该只有我会在意这样的细节吧，正常人都是直接清理的实体（
+
+tag=DeepSleep:itemIssue
+## 保存在 "DeepSleep:getItemFromChestReturn": mcstructure 中的实体带有此标签
+
+tag=DeepSleep:testPlayerNum
+## 本函数(depends/getItemFromChest)不一定安全，因为此时可能会处理超过 1 个以上的玩家，而这是非预期行为
+## 为了解决这个问题，需要这个携带有此标签的玩家检测本函数(depends/getItemFromChest)处理的玩家数量。如果超过 1 个，则应该执行一些特定的行为
+
+tag=DeepSleep:getItemFromChest_return_true
+## 玩家获得此标签后表示当前函数(depends/getItemFromChest)执行成功
+
+
+
+structure=DeepSleep:getItemFromChestReturn
+## 此结构用于存放函数 depends/getItemFromChest 的返回值，其内部只包含一个实体，也就是需要拿取的物品
+
+
+
+
+
+
+
+## depends/changeIssue
+
+
+
+objective=ds:screenTime
+## 此计分板上记录的分数用于记录显示题目的标题的下次刷新时间
+## 考虑到高频刷新显示可能比较卡，所以每隔 14 gameticks 刷新一次
+
+objective=ds:progress
+## 此计分板上记录的分数用于记录答题进度
+## 1..2, 3..4, 5..6 分别对应 小学, 初中, 高中
+
+
+
+tag=DeepSleep:changeIssue
+## 有本标签的玩家代表需要被本函数(depends/changeIssue)处理
+
+tag=DeepSleep:in_overworld
+## 考虑一个比较特殊的情况，如果被本函数(depends/changeIssue)处理的目标玩家此时不在主世界怎么办
+## 所以这个标签拿来标识在主世界的待处理玩家
+
+tag=DeepSleep:changeIssue_request_lock
+## 由于本函数(depends/changeIssue)不完全安全，因此需要上锁
+## 固然，拥有此标签的玩家不会被本函数(depends/changeIssue)处理，直到函数 depends/getItemFromChest 解锁
