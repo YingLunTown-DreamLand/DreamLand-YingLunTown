@@ -18,5 +18,5 @@ execute @a[scores={mainBuild:time=0}] ~ ~ ~ tag @s add mainBuild:effectAddReques
 execute @a[scores={mainBuild:time=0..99}] ~ ~ ~ scoreboard players add @s mainBuild:time 1
 execute @a[scores={mainBuild:time=100..}] ~ ~ ~ scoreboard players reset @s mainBuild:time
 # 添加分数以模拟时间计时
-execute @a[x=0.0,y=0.0,z=0.0,r=350.0] ~ ~ ~ tag @s add mainBuild:effectRemoveRequest
+execute @a[x=0.0,y=0.0,z=0.0,rm=350.0] ~ ~ ~ tag @s add mainBuild:effectRemoveRequest
 # 为主城之外的玩家清理药效
