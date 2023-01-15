@@ -1,0 +1,27 @@
+## run.mcfunction
+
+objective=mainBuild:time
+## 此计分板用于玩家在主城时的药效刷新相关
+## 分数的范围在 0 ~ 100
+## 当分数为 0 时视为需要刷新药效
+## 该分数只有当玩家在主城时才会常驻
+
+tag=mainBuild:effectAddRequest
+## 当主城的玩家在 `"mainBuild:time": objective` 上的分数为 0 时会被添加此标签
+## 此标签用于发起一个给予主城药效的请求
+## 该标签不会常驻
+
+tag=mainBuild:effectRemoveRequest
+## 当主城的玩家离开主城后，会获得这个标签
+## 此标签用于发起一个清理主城药效的请求
+## 该标签不会常驻
+
+
+
+
+
+## otherDimensionTest.mcfunction
+
+tag=mainBuild:isIn
+## 当玩家在主城时会被添加此标签
+## 该标签不会常驻
