@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "a menu depends on snowball",
+        "name": "SnowballMenu",
+        "uuid": "98a9aa35-fe45-4c3d-b419-c8d1be698698",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            18,
+            30
+        ]
+    },
+    "modules": [
+        {
+            "description": "whiteboard",
+            "type": "data",
+            "uuid": "17c61f53-1726-41c0-ab52-8ca2226445a9",
+            "version": [
+                1,
+                0,
+                2
+            ]
+        }
+    ]
+}

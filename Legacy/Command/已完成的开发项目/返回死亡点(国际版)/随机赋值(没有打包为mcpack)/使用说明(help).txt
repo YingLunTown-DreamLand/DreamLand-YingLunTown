@@ -1,4 +1,0 @@
-计分项"a"在计分板"random"中为 数字1
-计分项"b"在计分板"random"中为 数字2
-设置好数字1和数字2后，执行命令/function random_score即可获得数字1~数字2（或数字2~数字1）之间的任意一个随机值，效果跟/scoreboard players random的效果基本相同
-执行命令/function random_score后，输入命令/scoreboard objectives setdisplay sidebar random即可了解所取的随机值的结果（计分项为"取值结果"）
