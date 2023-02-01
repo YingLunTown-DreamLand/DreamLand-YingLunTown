@@ -17,9 +17,9 @@
     },
     "modules": [
         {
-            "description": "whiteboard",
+            "description": "SnowballMenu",
             "type": "data",
-            "uuid": "17c61f53-1726-41c0-ab52-8ca2226445a9",
+            "uuid": "3fcbfe33-c2f0-4c82-8a31-73f714f20589",
             "version": [
                 1,
                 0,
