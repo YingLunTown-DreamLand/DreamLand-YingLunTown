@@ -6,7 +6,7 @@
 # 	Type          string
 # }
 # 
-# func readData() entity {
+# func requestNewScanner() entity {
 # 	var A entity = entity{
 # 		TagList: []string{"dl_libdb:reqeustNewScanner"},
 # 		ScoreBoardMap: map[string]int32{
