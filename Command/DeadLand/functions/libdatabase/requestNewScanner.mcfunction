@@ -1,15 +1,35 @@
-# libdatabase/requestNewScanner(
-#    @e[
-#          tag=dl_libdb:reqeustNewScanner,
-#          scores={dl_libdb:landId=1..},
-#          type=armor_stand
-#    ]
-# ) -> {
-#    @e[tag=dl_libdb:scanner,type=armor_stand]
-#    posxMayChanged
-#    posyMayChangedInto -64.0(float32)
-#    poszMayChanged
+# ```go
+# type entity struct {
+# 	TagList       []string
+# 	ScoreBoardMap map[string]int32
+# 	Pos           [3]float32
+# 	Type          string
 # }
+# 
+# func readData() entity {
+# 	var A entity = entity{
+# 		TagList: []string{"dl_libdb:reqeustNewScanner"},
+# 		ScoreBoardMap: map[string]int32{
+# 			"dl_libdb:landId": Variable(), // dl_libdb:landId=1..20736; not used at this func
+# 			"dl_libdb:reqId":  Variable(), // dl_libdb:reqId=1..65535; not used at this func
+# 		},
+# 		Type: "minecraft:armor_stand", // have been nerver checked
+# 	}
+# 	// A is input
+# 	A.TagList = []string{
+# 		"dl_libdb:scanner",
+# 		"dl_libdb:scannerReadData",
+# 	}
+# 	A.Pos = [3]float32{
+# 		Variable(),
+# 		-64.0,
+# 		Variable(),
+# 	}
+# 	// change value
+# 	return A
+# 	// return
+# }
+# ```
 
 # Description
 # 初始化一个扫描器，使得其就绪以读取数据库中的数据
@@ -44,7 +64,7 @@ tag @e[tag=dl_libdb:scannerNeedCeil] remove dl_libdb:scannerNeedCeil
 
 
 execute @e[tag=dl_libdb:reqeustNewScanner_apiAccept] ~ ~ ~ tp 0.0 -64.0 0.0
-# 如果这里的坐标修改了，或者是这个坐标所在行不再是 47 了，那么请同时更新“Development Document.md”中的对应内容
+# 如果这里的坐标修改了，或者是这个坐标所在行不再是 67 了，那么请同时更新“Development Document.md”中的对应内容
 
 
 
@@ -111,6 +131,7 @@ scoreboard players set @e[tag=dl_libdb:reqeustNewScanner_apiAccept] dl_libdb:pos
 scoreboard players reset @e[tag=dl_libdb:reqeustNewScanner_apiAccept] dl_libdb:posz
 
 tag @e[tag=dl_libdb:reqeustNewScanner_apiAccept] add dl_libdb:scanner
+tag @e[tag=dl_libdb:reqeustNewScanner_apiAccept] add dl_libdb:scannerReadData
 tag @e[tag=dl_libdb:reqeustNewScanner_apiAccept] remove dl_libdb:reqeustNewScanner
 tag @e[tag=dl_libdb:reqeustNewScanner_apiAccept] remove dl_libdb:reqeustNewScanner_apiAccept
 # return

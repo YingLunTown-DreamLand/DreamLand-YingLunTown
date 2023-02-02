@@ -19,6 +19,8 @@ tag=dl_libdb:reqeustNewScanner
 tag=dl_libdb:reqeustNewScanner_apiAccept
 tag=dl_libdb:scannerNeedCeil
 tag=dl_libdb:scanner
+tag=dl_libdb:scannerReadData
+tag=dl_libdb:scannerReadDataDown
 
 name=dl_libdb_size
 name=_4096
