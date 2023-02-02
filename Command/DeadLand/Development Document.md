@@ -10,11 +10,11 @@
    - `dl_libdb:landId`
       - 标识 `扫描器` 应当前往的 `地皮`
    - `dl_libdb:posx`
-      - 标识 `扫描器` 要前往的 `X` 轴坐标 _[相对于 `libdatabase/requestNewScanner.mcfunction::Line 47` 的 `相对坐标` ]_
+      - 标识 `扫描器` 要前往的 `X` 轴坐标 _[相对于 `libdatabase/requestNewScanner.mcfunction::Line 67` 的 `相对坐标` ]_
    - `dl_libdb:posy`
       - 标识 `扫描器` 当前的 `Y` 轴坐标
    - `dl_libdb:posz`
-      - 标识 `扫描器` 要前往的 `Z` 轴坐标 _[相对于 `libdatabase/requestNewScanner.mcfunction::Line 47` 的 `相对坐标` ]_
+      - 标识 `扫描器` 要前往的 `Z` 轴坐标 _[相对于 `libdatabase/requestNewScanner.mcfunction::Line 67` 的 `相对坐标` ]_
    - `dl_libdb:reqId`
       - 标识 `扫描器` 的请求 `ID`
       - 它必须是唯一的，且通常为请求发起者的 `UID`
@@ -52,18 +52,36 @@
 
 # `libdatabase/requestNewScanner.mcfunction`
 ## `Func`
-```
-libdatabase/requestNewScanner(
-   @e[
-         tag=dl_libdb:reqeustNewScanner,
-         scores={dl_libdb:landId=1..},
-         type=armor_stand
-   ]
-) -> {
-   @e[tag=dl_libdb:scanner,type=armor_stand]
-   posxMayChanged
-   posyMayChangedInto -64.0(float32)
-   poszMayChanged
+```go
+type entity struct {
+	TagList       []string
+	ScoreBoardMap map[string]int32
+	Pos           [3]float32
+	Type          string
+}
+
+func readData() entity {
+	var A entity = entity{
+		TagList: []string{"dl_libdb:reqeustNewScanner"},
+		ScoreBoardMap: map[string]int32{
+			"dl_libdb:landId": Variable(), // dl_libdb:landId=1..20736; not used at this func
+			"dl_libdb:reqId":  Variable(), // dl_libdb:reqId=1..65535; not used at this func
+		},
+		Type: "minecraft:armor_stand", // have been nerver checked
+	}
+	// A is input
+	A.TagList = []string{
+		"dl_libdb:scanner",
+		"dl_libdb:scannerReadData",
+	}
+	A.Pos = [3]float32{
+		Variable(),
+		-64.0,
+		Variable(),
+	}
+	// change value
+	return A
+	// return
 }
 ```
 
@@ -85,7 +103,62 @@ libdatabase/requestNewScanner(
 - `dl_libdb:scannerNeedCeil`
 - `dl_libdb:scanner`
    - 标识已就绪的 `扫描器`
+- `dl_libdb:scannerReadData`
+   - 标识需要读入一个 `uint16` 的 `扫描器`
 
 
 
 # `libdatabase/readData.mcfunction`
+## `Func`
+```go
+type entity struct {
+	TagList       []string
+	ScoreBoardMap map[string]int32
+	Pos           [3]float32
+	Type          string
+}
+
+func readData() entity {
+	var A entity = entity{
+		TagList: []string{
+			"dl_libdb:scanner", // not used at this func
+			"dl_libdb:scannerReadData",
+		},
+		ScoreBoardMap: map[string]int32{
+			"dl_libdb:landId": Variable(), // dl_libdb:landId=1..20736; not used at this func
+			"dl_libdb:reqId":  Variable(), // dl_libdb:reqId=1..65535; not used at this func
+			"dl_libdb:posy":   Variable(), // dl_libdb:posy=1..65536
+		},
+		Pos: [3]float32{
+			Variable(),
+			Variable(),
+			Variable(),
+		},
+		Type: "minecraft:armor_stand", // have been nerver checked
+	}
+	// A is input
+	A.TagList = []string{
+		"dl_libdb:scanner", // not used at this func
+		"dl_libdb:scannerReadDataDown",
+	}
+	A.ScoreBoardMap["dl_libdb:math"] = Variable() // dl_libdb:math=1..65535
+	A.ScoreBoardMap["dl_libdb:posy"]++
+	A.Pos[1]++
+	// change value
+	return A
+	// return
+}
+```
+
+## `Description`
+- 让 `扫描器` 读入下一个 `uint16` 的 `整数` ，整个过程会持续至少 `4 ticks` 的时间
+
+## `Install`
+- 安装在 `命令区` 且循环执行，但 `红石控制`
+
+## `Start Condition`
+- 命令 `testfor @e[tag=dl_libdb:scannerReadData,c=1]` 成功时
+
+## `Tag`
+- `dl_libdb:scannerReadDataDown`
+   - 标识已读完一个 `uint16` 的 `扫描器`
