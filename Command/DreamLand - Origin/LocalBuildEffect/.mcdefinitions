@@ -1,0 +1,11 @@
+function=define
+function=effectAddRequest
+function=effectRemoveRequest
+function=main
+function=otherDimensionTest
+
+objective=mainBuild:time
+
+tag=mainBuild:effectAddRequest
+tag=mainBuild:effectRemoveRequest
+tag=mainBuild:isIn
