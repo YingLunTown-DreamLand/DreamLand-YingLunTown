@@ -1,0 +1,114 @@
+{
+    "LocalBuildEffect.mcstructure": {
+        "Container": [], 
+        "CreatorMode": {
+            "enabled": false, 
+            "outputPath": null
+        }, 
+        "SuccessStates": true, 
+        "Warning": [], 
+        "checkStates": "Successful", 
+        "errorReason": null, 
+        "outputPath": "C:/Users/chenb/Desktop/结构翻译器/Output/LocalBuildEffect.mcstructure.bdx", 
+        "replaceBlockID_errorLog": [], 
+        "replaceBlockID_result": [
+            [
+                [
+                    "minecraft:air", 
+                    {}
+                ], 
+                [
+                    "minecraft:repeating_command_block", 
+                    {
+                        "conditional_bit": false, 
+                        "facing_direction": 1
+                    }
+                ], 
+                [
+                    "minecraft:chain_command_block", 
+                    {
+                        "conditional_bit": false, 
+                        "facing_direction": 1
+                    }
+                ], 
+                [
+                    "minecraft:repeating_command_block", 
+                    {
+                        "conditional_bit": true, 
+                        "facing_direction": 2
+                    }
+                ], 
+                [
+                    "minecraft:stained_glass", 
+                    {
+                        "color": "red"
+                    }
+                ], 
+                [
+                    "minecraft:chain_command_block", 
+                    {
+                        "conditional_bit": true, 
+                        "facing_direction": 1
+                    }
+                ]
+            ], 
+            [
+                [
+                    "minecraft:double_stone_block_slab", 
+                    -1, 
+                    "minecraft:double_stone_slab", 
+                    -1
+                ], 
+                [
+                    "minecraft:double_stone_block_slab2", 
+                    -1, 
+                    "minecraft:double_stone_slab2", 
+                    -1
+                ], 
+                [
+                    "minecraft:double_stone_block_slab3", 
+                    -1, 
+                    "minecraft:double_stone_slab3", 
+                    -1
+                ], 
+                [
+                    "minecraft:double_stone_block_slab4", 
+                    -1, 
+                    "minecraft:double_stone_slab4", 
+                    -1
+                ], 
+                [
+                    "minecraft:stone_block_slab", 
+                    -1, 
+                    "minecraft:stone_slab", 
+                    -1
+                ], 
+                [
+                    "minecraft:stone_block_slab2", 
+                    -1, 
+                    "minecraft:stone_slab2", 
+                    -1
+                ], 
+                [
+                    "minecraft:stone_block_slab3", 
+                    -1, 
+                    "minecraft:stone_slab3", 
+                    -1
+                ], 
+                [
+                    "minecraft:stone_block_slab4", 
+                    -1, 
+                    "minecraft:stone_slab4", 
+                    -1
+                ], 
+                [
+                    "minecraft:sea_lantern", 
+                    -1, 
+                    "minecraft:sealantern", 
+                    -1
+                ]
+            ]
+        ], 
+        "waterWarning": false
+    }
+}

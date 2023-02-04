@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Effect for local build",
+        "name": "LocalBuildEffect",
+        "uuid": "ae248308-f92e-49c2-832a-666ea2db26e6",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            18,
+            30
+        ]
+    },
+    "modules": [
+        {
+            "description": "LocalBuildEffect",
+            "type": "data",
+            "uuid": "623a426c-d9a0-4cc6-946e-3362c27d92cb",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
