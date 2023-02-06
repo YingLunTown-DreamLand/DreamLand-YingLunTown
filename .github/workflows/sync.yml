@@ -6,7 +6,7 @@ on:
 
 jobs:
   repo-sync:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Synchronize code to the image repository
       uses: Yikun/hub-mirror-action@v1.2
