@@ -1,0 +1,22 @@
+name: Sync code to Gitte
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@v1.2
+      with:
+        src: github/YingLunTown-DreamLand-Development-Group
+        dst: gitee/Happy2018new
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
+        static_list: "DreamLand-YingLunTown"
+        force_update: true
+        debug: true
