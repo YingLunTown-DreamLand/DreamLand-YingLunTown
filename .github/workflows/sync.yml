@@ -5,12 +5,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  repo-sync:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Mirror the Github organization repos to Gitee.
+    - name: Synchronize code to the image repository
       uses: Yikun/hub-mirror-action@v1.2
       with:
         src: github/YingLunTown-DreamLand-Development-Group
@@ -19,4 +17,4 @@ jobs:
         dst_token: ${{ secrets.GITEE_TOKEN }}
         static_list: "DreamLand-YingLunTown"
         force_update: true
-        debug: true
+        debug: false
