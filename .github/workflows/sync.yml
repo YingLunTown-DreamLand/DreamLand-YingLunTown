@@ -16,5 +16,5 @@ jobs:
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
         static_list: "DreamLand-YingLunTown"
-        force_update: true
-        debug: false
+        force_update: false
+        mappings: "DreamLand-YingLunTown=>DreamLand-YingLunTown-Mirror"
