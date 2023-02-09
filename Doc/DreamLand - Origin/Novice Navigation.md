@@ -13,7 +13,7 @@
 
 ## 版式
 - 二〇二三年二月八日 第 `2` 版 _[当前]_
-- 二〇二三年二月三日 第 `1` 版
+- [二〇二三年二月三日 第 `1` 版](https://github.com/YingLunTown-DreamLand-Development-Group/DreamLand-YingLunTown/blob/main/Doc/DreamLand%20-%20Origin/%E5%B9%BB%E6%83%B3%E4%B9%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97.md)
 
 
 
