@@ -7,7 +7,7 @@
 - [`Comment`](#comment)
 
 # Basic Information
-- Author - @Happy2018new 
+- Author - _@Happy2018new_
 - Requestor - `丸子（已开学，不定期上线）(2894487938)`
 - Server - `DreamLand - Origin`
 - Type - `Request`
