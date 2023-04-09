@@ -7,12 +7,12 @@
 - [`Comment`](#comment)
 
 # Basic Information
-Author - @Happy2018new 
-Requestor - `丸子（已开学，不定期上线）(2894487938)`
-Server - `DreamLand - Origin`
-Type - `Request`
-Num - `20`
-Level - `Normal`
+- Author - @Happy2018new 
+- Requestor - `丸子（已开学，不定期上线）(2894487938)`
+- Server - `DreamLand - Origin`
+- Type - `Request`
+- Num - `20`
+- Level - `Normal`
 
 # Resolution States
 - 状态
