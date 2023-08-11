@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Synchronize code to the image repository
-      uses: Yikun/hub-mirror-action@v1.2
+      uses: Yikun/hub-mirror-action@master
       with:
         src: github/YingLunTown-DreamLand-Development-Group
         dst: gitee/Happy2018new
