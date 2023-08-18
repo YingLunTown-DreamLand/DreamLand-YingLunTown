@@ -2,10 +2,28 @@
 
 ## 文档信息
 - 我们按 `user_name:string(netease_user_unique_id:int64)` 的格式对玩家的信息进行格式化
-- 此文档最后编辑于 `2023/08/15 Aft`
+- 此文档最后编辑于 `2023/08/18 Aft`
 
 ## 名录
 <table>
+    <tr>
+        <td>
+            品茗茶呀(2371067378)<br/>
+            <i>[Create <a href="https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/pull/55">this</a> because of he was revealed to have used an unauthorized third-party client]</i><br/>
+        </td>
+        <td>
+            <img width="96" length="96" alt="image" src="https://g79-2.fp.ps.netease.com/file/64c4acb997f4dd39c07d97bcBR25pRjj05">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            枭起青瓤(2828142906)<br/>
+            <i>[Create <a href="https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/pull/55">this</a> because of he was revealed to have used an unauthorized third-party client]</i><br/>
+        </td>
+        <td>
+            <img width="96" length="96" alt="image" src="https://x19.fp.ps.netease.com/file/5a34dec5143cfa291b739852zKvxVooW">
+        </td>
+    </tr>
     <tr>
         <td>
             时祗旧梦丶薰(2254746138)<br/>
