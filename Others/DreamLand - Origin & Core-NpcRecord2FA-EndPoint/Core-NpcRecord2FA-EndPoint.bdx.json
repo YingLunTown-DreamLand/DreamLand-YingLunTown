@@ -1,0 +1,51 @@
+{
+    "AuthorName": "", 
+    "BDXContents": [
+        {
+            "operationData": {
+                "constantString": "trapped_chest"
+            }, 
+            "operationName": "CreateConstantString", 
+            "operationNumber": 1
+        }, 
+        {
+            "operationData": {
+                "constantString": "chest"
+            }, 
+            "operationName": "CreateConstantString", 
+            "operationNumber": 1
+        }, 
+        {
+            "operationData": {
+                "constantString": "[\"facing_direction\":3]"
+            }, 
+            "operationName": "CreateConstantString", 
+            "operationNumber": 1
+        }, 
+        {
+            "operationData": {
+                "blockConstantStringID": 0, 
+                "blockData": 0
+            }, 
+            "operationName": "PlaceBlock", 
+            "operationNumber": 7
+        }, 
+        {
+            "operationData": {
+                "blockConstantStringID": 1, 
+                "blockNBT": "{y: 97, z: 998, Findable: 0b, Items: [{tag: {Items: [{Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 0b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§a生存区§f】▶\"}}}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 1b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§7杂物§f】▶\"}}}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 2b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§b玩家传送§f】▶\"}}, Count: 1b}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 3b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§b生物蛋§f】▶\"}}}, {Name: \"minecraft:npc_spawn_egg\", Slot: 4b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§c随机传送§f】▶\"}}, Count: 1b, Damage: 0s}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 5b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§l§6感谢\n§bBaby_201⑥\n§bMC丶血小板\n§b把酒言欢几多愁\n§6倾力奉献\"}}, Count: 1b}, {Slot: 6b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§a生物掉落§f】▶\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\"}, {tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§6幻§e想§b乡 §f● §d贡献者§f】▶\n§r§a§lMC丶血小板 §f| §aBaby_2016 §f| §a时祗旧梦丶薰 §f| §a叶澄鑫 §f| §a晓月黯殇\n§r§a§lAS青璃 §f| §a饿兽黎杉 §f| §a普通的玩家312 §f| §a羽颖YY §f| §ahuangDMST\n§r§f§l◀【§6幻§e想§b乡 §f● §6留名墙§f】▶\n§r§b§l诺白郡主 §f| §b字幕君 §f| §b我布是远古 §f| §b我布是白给 §f| §b府白呀\n§r§b§lLZN乄德方 §f| §bCZG_丑八怪 §f| §b小雨4xy §f| §b牟菇2 §f| §bBMG2HFet\n§r§b§ltrdfjtss §f| §b家养高粱长跑 §f| §b紫依康 §f| §b亲爱的骷吸气副\n§r§b§l全服最肝 §f| §b诚挚的末影娘灌篮\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 7b, WasPickedUp: 0b}, {Slot: 8b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§e开始游戏§f】▶\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\"}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 9b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§l§f玩家传送\n§b花费 §e100幻想币\"}}}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 10b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§d附魔区§f】▶\"}}}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 11b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§c商店 §f& §c抽奖机§f】▶\"}}, Count: 1b}, {Name: \"minecraft:npc_spawn_egg\", Slot: 12b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§3生存区①§f】▶\"}}, Count: 1b, Damage: 0s}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 13b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§3生存区②§f】▶\"}}}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 14b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§3生存区③§f】▶\"}}}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 15b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§3生存区④§f】▶\"}}, Count: 1b}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 16b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§c地皮区§f】▶\"}}}, {tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§f鸽子乱葬岗§f】▶\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 17b, WasPickedUp: 0b}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 18b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§6神明祈愿§f】▶\"}}}, {tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§b潮汐之月§f】▶\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 19b, WasPickedUp: 0b}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 20b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§6欢迎进群§f】▶\"}}, Count: 1b}, {Name: \"minecraft:npc_spawn_egg\", Slot: 21b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§e纪念主城§f】▶\"}}, Count: 1b, Damage: 0s}, {WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§a生存区 §f& §a地皮区§f】▶\"}}, Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 22b}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 23b, WasPickedUp: 0b, tag: {display: {Name: \"§r§l§c找不到按钮传送§f？\n§r§e点此按钮以恢复传送按钮\"}, RepairCost: 0}, Count: 1b}, {Count: 1b, Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 24b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§f§l◀【§a点我回城§f】▶\"}}}, {Damage: 0s, Name: \"minecraft:npc_spawn_egg\", Slot: 25b, WasPickedUp: 0b, tag: {RepairCost: 0, display: {Name: \"§r§l§f▲【§b幻想乡§f•§e主城§f】▲\"}}, Count: 1b}]}, Block: {name: \"minecraft:shulker_box\", states: {color: \"white\"}, val: 0s, version: 17959425}, Count: 1b, Damage: 0s, Name: \"minecraft:shulker_box\", Slot: 0b, WasPickedUp: 0b}, {WasPickedUp: 0b, tag: {Items: [{Name: \"minecraft:written_book\", Slot: 0b, WasPickedUp: 0b, tag: {author: \"晓月黯殇\", generation: 0, pages: [{text: \"指令组：固定的地皮系统\n作者：晓月黯殇\n\n使用说明：\n传送途中不可移动\n生成途中不可移动\n地皮区范围内不可使用末影珍珠、紫颂果、船。\n其中紫颂果与末影珍珠不可在背包内，请使用前讲其移出背包。\", photoname: \"\"}, {photoname: \"\", text: \"地皮购买须知：\n地皮生成请勿移动\n地皮生成需要时间\n即使落地也不会死亡\n生存完成会再次传送并进入地皮\"}, {text: \"地皮大小：六十二方\n请使用玻璃保护层\n（由于可能造成卡顿所以手动生成）\n点下按钮后在地皮内等待即可\n如果没有移动会有完成提示\n完成后按钮消失\", photoname: \"\"}, {text: \"地皮售价：五千幻想币\n每人仅可购买一次地皮\n购买成功后进入地皮生成阶段\n地皮生成请勿移动\", photoname: \"\"}, {photoname: \"\", text: \"地皮提供功能：\n门禁密码箱（地皮持有者可锁定与解除箱子锁定）\n\n冒险限制：地皮持有者外的玩家游戏模式变更为冒险模式\n\n禁止进入：地皮持有者外的玩家被长传送至地皮外\"}, {photoname: \"\", text: \"地皮当前预计出售上限：一万\n\n地皮初始坐标：四万 * 一千\n\n以地皮初始坐标开始x轴与z轴正方向都有可能会被地皮系统自动圈入，请玩家与管理进行避让\"}, {photoname: \"\", text: \"地皮保护范围更大很多，请玩家注意不在地皮初始坐标的坐标轴正方向以及周边携带地皮违禁品\"}, {text: \"地皮系统并且没有更多附加功能，仅为圈出相对安全的区域提供给玩家。\n\n玩家在自己持有的地皮内可以使用相应功能，对地皮进行管理。\n\n（说白就是相对非地皮安全一些）\", photoname: \"\"}], title: \"笨重的地皮使用手册\", xuid: \"\"}, Count: 1b, Damage: 0s}, {Damage: 0s, Name: \"minecraft:written_book\", Slot: 1b, WasPickedUp: 0b, tag: {xuid: \"\", RepairCost: 0, author: \"小板\", display: {Name: \"§d遗失之书（一股冲天怨气）\"}, generation: 0, pages: [{text: \"在我离开的这段时间里\n服务器的更新简直没有\n抽奖机怎么现在都没好啊？\n抽奖机怎么现在都没好啊？\n抽奖机怎么现在都没好啊？\n不更新可以，基本的维护有吗\n悬浮字掉了能修吗\n就这游戏热情真别玩了吧\n几个月不上线了就给我看这些东西吗\n虽然但是\n我还期待了下 上线之后服务器会不会焕然一新\", photoname: \"\"}, {photoname: \"\", text: \"会不会新增很多玩法\n或是好看的建筑\n亦或是厉害的指令\n服务器托付给你\n你摆烂 无所谓\n叫我回来\n让我心灰意冷了属实是\n不知道你多久才会看到这则留言？\n二零二三 六月十一日 \n小板留\"}], title: \"收件人：18\"}, Count: 1b}]}, Block: {name: \"minecraft:shulker_box\", states: {color: \"white\"}, val: 0s, version: 17959425}, Count: 1b, Damage: 0s, Name: \"minecraft:shulker_box\", Slot: 1b}], id: \"Chest\", isMovable: 1b, x: 997}", 
+                "blockStatesConstantStringID": 2
+            }, 
+            "operationName": "PlaceBlockWithNBTData", 
+            "operationNumber": 41
+        }
+    ], 
+    "Signature": {
+        "LegacySignBuffer": null, 
+        "Outdated": false, 
+        "Prove": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAtMuXhRn8UDW+AGXEILpIPa8qxgIQnDvPnFwkek+4Ax2pbuYHSSx8\nuZc9g4FfbR3IRKIiMHEKoV9hgNJhpuTVloDI80c2AwLBmrESZESw2xpj+oPLP/h4\ngJs7GA5JVBRJ+TejcCdD1FOUO+7QQ/xSEc69pMxvxgk4OXTDPhg5xFw1aMHbiz7F\nnY20g357JdFsot2Jyj5A02x1EvDKm8bcsvLGKsSKhhypbse1IX53IhtvQuX+GNCQ\nrOr1BlhQr57hCsclu9l+/XIOrawHQU4Qb/yGbSl5E0lO8eGrmTrstMG5CmcRM7At\n78LagButxm2yKoqyE4XFZZY07qHOGKkLzQIDAQAB\n-----END RSA PUBLIC KEY-----\n|3527679800::5df24eff7982fcc858c67f3338c5cac37c8ede480ad10f0c5c59ee13dd49c6855432159553f7d4081b60bb53408a20122b532a4ef9a6cee93ac0f024efada80c9b0ddad681ad3c8813204c21b09462f2e75ebd707135806c1b30684fcb5070587c37968c0115aa72c6e4b5409cde7fff6af7ab2eaede316a03773ef73d0f0fc344796452d922481cd1d71fc10cfc2a1f8fe092d1af3d5e05d9fb0dedc30de527aec3c2df55e727003f16eaab46a7b62cba6c02b3fb13d57242eb59e4238ed04afb63db276e6378b41c8057987c5179901f1cb792eca361221d2d953b4614a936119d5eb3bfee03f02115cdfcd5b085c3dc2f64103808d03da12ad99961d65108", 
+        "Signature": "13789e257d364d3321eccc7ad34c0b931f0ca14abdb889f9a56f36b5202e3cd920382e109ecf18633fa3660f05d39fa381c6bdcd381f686e51687a7df975df83cd9f04e287ff77191a2f4c89bee974314e7bd3840188c3bd7007460b82d5110079f21c6f7dbde41debd3caaa6f2ec16758814045bc7320fab6b165d7560bc5da19bf9d6a395932c95684ccdb525d8413f56243b8db98468f259795d56ad050571d41bd03029a342447676899a9bcc3514dd68463992daaff00e8d3257ba8ab9a14b36b43e9f286da00992bd003ac679c2b2c6f6218d80cd841bb7dce7d3f93f48773971b289b6dfe56791cfb10a4485ba53bfd28f3a2e22d607ffab82d5a50cd", 
+        "Signed": true, 
+        "Signer": "3527679800"
+    }
+}
