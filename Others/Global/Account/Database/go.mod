@@ -1,6 +1,6 @@
-go 1.20
+go 1.21.1
 
-module AccountProcesser
+module DB
 
 require go.etcd.io/bbolt v1.3.8
 

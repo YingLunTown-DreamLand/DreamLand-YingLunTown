@@ -1,0 +1,8 @@
+go 1.21.1
+
+use (
+	./Database
+	./Mapping
+	./RSA
+	./Test
+)
