@@ -1,7 +1,7 @@
 package PlayerLocation
 
 import (
-	"General"
+	Area "General"
 	"bufio"
 	"os"
 	"time"
@@ -35,9 +35,9 @@ type SingleLog struct {
 // 用于筛选日志数据的过滤器，
 // 对应参数为空指针时筛选不生效
 type Filter struct {
-	StartTime     *time.Time   // 只筛选时间在此后的日志(含边界)
-	EndTime       *time.Time   // 只筛选时间在此前的日志(含边界)
-	Area          General.Area // 只筛选位置在此区域内的玩家(含边界)
-	ExcludePlayer []string     // 排除包含这些玩家的日志
-	PlayerName    []string     // 只有当被记录者在此列时日志才会被筛选
+	StartTime     *time.Time // 只筛选时间在此后的日志(含边界)
+	EndTime       *time.Time // 只筛选时间在此前的日志(含边界)
+	Area          Area.Area  // 只筛选位置在此区域内的玩家(含边界)
+	ExcludePlayer []string   // 排除包含这些玩家的日志
+	PlayerName    []string   // 只有当被记录者在此列时日志才会被筛选
 }

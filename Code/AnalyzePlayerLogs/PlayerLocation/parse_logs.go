@@ -1,7 +1,7 @@
 package PlayerLocation
 
 import (
-	"StringReader"
+	"General/StringReader"
 	"fmt"
 	"strconv"
 	"time"

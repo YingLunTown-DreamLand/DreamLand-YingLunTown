@@ -1,8 +1,8 @@
 package main
 
 import (
-	"General"
-	"PlayerLocation"
+	"AnalyzePlayerLogs/PlayerLocation"
+	"General/Area"
 	"fmt"
 	"time"
 )
@@ -15,7 +15,7 @@ func main() {
 	res, err := file.ParseFullLogs(PlayerLocation.Filter{
 		StartTime: &start_time,
 		EndTime:   &end_time,
-		Area: &General.CircleArea{
+		Area: &Area.CircleArea{
 			Center: [2]float64{40228, 2320},
 			Radius: 64,
 		},

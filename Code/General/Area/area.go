@@ -1,4 +1,4 @@
-package General
+package Area
 
 // 检测 pos 是否在 c 所指代的圆形区域内
 func (c *CircleArea) CheckPass(pos [2]float64) (pass bool) {

@@ -1,8 +1,7 @@
 go 1.21.1
 
 use (
+	./AnalyzePlayerLogs
 	./General
-	./PlayerLocation
-	./StringReader
 	./Test
 )
