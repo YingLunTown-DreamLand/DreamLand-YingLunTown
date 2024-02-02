@@ -1,3 +1,3 @@
 module Test
 
-go 1.12.1
+go 1.21.6

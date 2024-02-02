@@ -1,7 +1,8 @@
-go 1.21.1
+go 1.21.6
 
 use (
 	./AnalyzePlayerLogs
+	./Database
 	./General
 	./Test
 )
