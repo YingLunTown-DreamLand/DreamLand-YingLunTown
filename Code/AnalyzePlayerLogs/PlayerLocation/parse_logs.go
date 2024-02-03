@@ -135,13 +135,18 @@ func (l *LogFile) ParseSingleLog(
 			return nil, fmt.Errorf("ParseSingleLog: %v", err)
 		}
 		// parse position information
-		if filter.ExcludePlayer != nil && len(filter.ExcludePlayer) > 0 {
+		if len(filter.ExcludePlayer) > 0 {
 			pos_info := []SinglePosInfo{}
-			for _, value := range filter.ExcludePlayer {
-				for _, v := range res.PosInfo {
-					if v.PlayerName != value {
-						pos_info = append(pos_info, v)
+			for _, value := range res.PosInfo {
+				need_exclude := false
+				for _, v := range filter.ExcludePlayer {
+					if value.PlayerName == v {
+						need_exclude = true
+						break
 					}
+				}
+				if !need_exclude {
+					pos_info = append(pos_info, value)
 				}
 			}
 			if len(pos_info) == 0 {
@@ -150,13 +155,18 @@ func (l *LogFile) ParseSingleLog(
 			res.PosInfo = pos_info
 		}
 		// check player name of position information - first check
-		if filter.PlayerName != nil {
+		if len(filter.PlayerName) > 0 {
 			pos_info := []SinglePosInfo{}
-			for _, value := range filter.PlayerName {
-				for _, v := range res.PosInfo {
-					if v.PlayerName == value {
-						pos_info = append(pos_info, v)
+			for _, value := range res.PosInfo {
+				need_include := false
+				for _, v := range filter.PlayerName {
+					if value.PlayerName == v {
+						need_include = true
+						break
 					}
+				}
+				if need_include {
+					pos_info = append(pos_info, value)
 				}
 			}
 			if len(pos_info) == 0 {
