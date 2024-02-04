@@ -1,8 +1,8 @@
 package DB
 
 import (
+	Mapping "General/Mapping"
 	"fmt"
-	Mapping "phoenixbuilder/fastbuilder/database/mapping"
 	"sync"
 )
 
