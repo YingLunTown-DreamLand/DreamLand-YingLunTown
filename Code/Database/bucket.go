@@ -2,11 +2,13 @@ package DB
 
 import (
 	"fmt"
+	Mapping "phoenixbuilder/fastbuilder/database/mapping"
+	"sync"
 )
 
 // 刷新存储桶中对已有键的统计结果
 func (b *Bucket) RefreshMapping() {
-	b.mapping.Init()
+	b.mapping.Reset()
 	b.b.ForEach(func(k, v []byte) error {
 		b.mapping.Put(k)
 		return nil
@@ -82,7 +84,14 @@ func (b *Bucket) GetSubBucketByName(name []byte) (result *Bucket) {
 	sub_bucket_use_down := make(chan struct{}, 1)
 	// prepare
 	go func() {
-		result = &Bucket{b: b.b.Bucket(name), use_down: sub_bucket_use_down}
+		result = &Bucket{
+			b:         b.b.Bucket(name),
+			mapping:   Mapping.GetNewMapping(),
+			terminate: make(chan struct{}, 1),
+			subBucket: &sync.WaitGroup{},
+			use_down:  sub_bucket_use_down,
+		}
+		result.RefreshMapping()
 		sub_bucket_got <- struct{}{}
 		select {
 		case <-sub_bucket_use_down:
@@ -116,7 +125,7 @@ func (b *Bucket) UseDown() error {
 	b.subBucket.Wait()
 	// 等待所有已打开的子存储桶被关闭
 	b.b = nil
-	b.mapping.Init()
+	b.mapping.Reset()
 	// 释放当前存储桶
 	b.use_down <- struct{}{}
 	close(b.use_down)

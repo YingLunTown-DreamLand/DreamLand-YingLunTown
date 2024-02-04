@@ -2,6 +2,8 @@ package DB
 
 import (
 	"fmt"
+	Mapping "phoenixbuilder/fastbuilder/database/mapping"
+	"sync"
 
 	"go.etcd.io/bbolt"
 )
@@ -24,7 +26,12 @@ func OpenOrCreateDatabase(path string) (
 	if err != nil {
 		return nil, fmt.Errorf("OpenOrCreateDatabase: %v", err)
 	}
-	database = &Database{db: db}
+	database = &Database{
+		db:           db,
+		mapping:      Mapping.GetNewMapping(),
+		terminate:    make(chan struct{}, 1),
+		openedBucket: &sync.WaitGroup{},
+	}
 	// open database
 	database.RefreshMapping()
 	// list all keys
@@ -34,7 +41,7 @@ func OpenOrCreateDatabase(path string) (
 
 // 刷新数据库中对已有存储桶的统计结果
 func (d *Database) RefreshMapping() {
-	d.mapping.Init()
+	d.mapping.Reset()
 	d.db.View(func(tx *bbolt.Tx) error {
 		tx.ForEach(func(name []byte, b *bbolt.Bucket) error {
 			d.mapping.Put(name)
@@ -97,7 +104,14 @@ func (d *Database) GetBucketByName(name []byte) (result *Bucket) {
 	bucket_use_down := make(chan struct{}, 1)
 	// prepare
 	go d.db.Update(func(tx *bbolt.Tx) error {
-		result = &Bucket{b: tx.Bucket(name), use_down: bucket_use_down}
+		result = &Bucket{
+			b:         tx.Bucket(name),
+			mapping:   Mapping.GetNewMapping(),
+			terminate: make(chan struct{}, 1),
+			subBucket: &sync.WaitGroup{},
+			use_down:  bucket_use_down,
+		}
+		result.RefreshMapping()
 		bucket_got <- struct{}{}
 		select {
 		case <-bucket_use_down:
@@ -123,7 +137,7 @@ func (d *Database) CloseDatabase() error {
 	}
 	d.openedBucket.Wait()
 	// 等待所有已打开的存储桶被关闭
-	d.mapping.Init()
+	d.mapping.Reset()
 	err := d.db.Close()
 	// 关闭数据库
 	if err != nil {

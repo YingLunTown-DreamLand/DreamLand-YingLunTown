@@ -4,8 +4,13 @@ import (
 	"encoding/hex"
 )
 
+// 取得一个已经初始化的新 map
+func GetNewMapping() Mapping {
+	return Mapping{contents: make(map[HexString]any)}
+}
+
 // 初始化或重置 map
-func (m *Mapping) Init() {
+func (m *Mapping) Reset() {
 	m.contents = make(map[HexString]any)
 }
 
