@@ -72,9 +72,10 @@ func (b *Bucket) DeleteSubBucket(name []byte) error {
 }
 
 // 从该存储桶取得名为 name 的子存储桶。
-// 此后，在进行任何与所获子桶无关的操作前须关闭子桶，
-// 否则这些新增的操作都将被阻塞，
-// 直到被(强制)释放
+// 你可以同时打开若干个子存储桶，
+// 它们互相独立，可以同时操作。
+// 在子存储桶使用完毕后，
+// 你必须将其释放，否则可能会造成阻塞
 func (b *Bucket) GetSubBucketByName(name []byte) (result *Bucket) {
 	b.subBucket.Add(1)
 	sub_bucket_got := make(chan struct{}, 1)
