@@ -57,6 +57,7 @@ func (b *Bucket) CreateSubBucket(name []byte) error {
 	if err != nil {
 		return fmt.Errorf("CreateSubBucket: %v", err)
 	}
+	b.mapping.Put(name)
 	return nil
 }
 
@@ -66,6 +67,7 @@ func (b *Bucket) DeleteSubBucket(name []byte) error {
 	if err != nil {
 		return fmt.Errorf("CreateSubBucket: %v", err)
 	}
+	b.mapping.Delete(name)
 	return nil
 }
 
