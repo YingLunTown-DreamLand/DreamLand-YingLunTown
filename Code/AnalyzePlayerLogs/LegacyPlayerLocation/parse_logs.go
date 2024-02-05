@@ -1,6 +1,7 @@
 package LegacyPlayerLocation
 
 import (
+	"General/Area"
 	"General/StringReader"
 	"fmt"
 	"strconv"
@@ -80,7 +81,7 @@ func (l *LogFile) ParsePosInfo(
 }
 
 // 从 str 解析单个日志所捕获到的坐标信息。
-// filter 当次解析时所使用的数据过滤器
+// filter 指代当次解析时所使用的数据过滤器
 func (l *LogFile) ParseSingleLog(
 	str string,
 	filter Filter,
@@ -178,7 +179,22 @@ func (l *LogFile) ParseSingleLog(
 		if filter.Area != nil {
 			pos_info := []SinglePosInfo{}
 			for _, value := range res.PosInfo {
-				if filter.Area.CheckPass([2]float64{value.PlayerPosition[0], value.PlayerPosition[2]}) {
+				need_include := false
+				for _, v := range filter.Area {
+					if v.CheckPass(
+						Area.Point{
+							Dimension: 0,
+							Pos: [2]float64{
+								value.PlayerPosition[0],
+								value.PlayerPosition[2],
+							},
+						},
+					) {
+						need_include = true
+						break
+					}
+				}
+				if need_include {
 					pos_info = append(pos_info, value)
 				}
 			}
@@ -186,21 +202,21 @@ func (l *LogFile) ParseSingleLog(
 				return nil, nil
 			}
 			res.PosInfo = pos_info
+			// check player position of position information
 		}
-		// check player position of position information
+		// position information
+		reader.JumpSpace()
+		if next_token := reader.Next(false); next_token != "]" {
+			return nil, fmt.Errorf("ParseSingleLog: Unexpected token %s was found", next_token)
+		}
+		// test end token
+		return
+		// return
 	}
-	// position information
-	reader.JumpSpace()
-	if next_token := reader.Next(false); next_token != "]" {
-		return nil, fmt.Errorf("ParseSingleLog: Unexpected token %s was found", next_token)
-	}
-	// test end token
-	return
-	// return
 }
 
 // 从 l 解析整个日志所捕获到的坐标信息。
-// filter 当次解析时所使用的数据过滤器
+// filter 指代当次解析时所使用的数据过滤器
 func (l *LogFile) ParseFullLogs(filter Filter) (
 	res FullLogs,
 	err error,

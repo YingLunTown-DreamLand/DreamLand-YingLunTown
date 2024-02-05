@@ -9,6 +9,9 @@ import (
 // 刷新存储桶中对已有键的统计结果
 func (b *Bucket) RefreshMapping() {
 	b.mapping.Reset()
+	if b.b == nil {
+		return
+	}
 	b.b.ForEach(func(k, v []byte) error {
 		b.mapping.Put(k)
 		return nil

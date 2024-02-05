@@ -1,3 +1,7 @@
 package main
 
-func main() {}
+import "Example"
+
+func main() {
+	Example.LegacyPlayerLocation()
+}

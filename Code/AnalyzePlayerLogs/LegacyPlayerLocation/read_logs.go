@@ -6,9 +6,9 @@ import (
 	"os"
 )
 
-// 打开日志
-func OpenLogFile() (log_file *LogFile, err error) {
-	file, err := os.Open("玩家位置")
+// 打开 path 处的日志
+func OpenLogFile(path string) (log_file *LogFile, err error) {
+	file, err := os.Open(path)
 	if err != nil {
 		return nil, fmt.Errorf("OpenFile: %v", err)
 	}
