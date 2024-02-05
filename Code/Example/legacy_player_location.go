@@ -1,4 +1,4 @@
-package main
+package Example
 
 import (
 	PlayerLocation "AnalyzePlayerLogs/LegacyPlayerLocation"
@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func main() {
+func LegacyPlayerLocation() {
 	file, err := PlayerLocation.OpenLogFile()
 	fmt.Println(err)
 	start_time, _ := time.Parse("2006/01/02 15:04:05", "2006/01/01 00:00:00")
