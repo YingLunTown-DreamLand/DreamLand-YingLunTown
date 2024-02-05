@@ -1,4 +1,4 @@
-package PlayerLocation
+package LegacyPlayerLocation
 
 import (
 	"bufio"

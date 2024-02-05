@@ -3,6 +3,7 @@ go 1.21.6
 use (
 	./AnalyzePlayerLogs
 	./Database
+	./Example
 	./General
 	./Test
 )
