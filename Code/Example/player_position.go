@@ -26,7 +26,7 @@ func PlayerPosition() {
 				fmt.Printf("	%v\n", key)
 				fmt.Printf("		PosChangeDetailsSumCounts: %d\n", val.PosChangeDetailsSumCounts)
 				if val.LastInfoRecord == nil {
-					fmt.Println("	LastInfoRecord: nil")
+					fmt.Println("		LastInfoRecord: nil")
 				} else {
 					fmt.Printf(
 						"		LastInfoRecord: [%v] Dimension: %d, Position: (%v,%v,%v), YRot: %v\n",
