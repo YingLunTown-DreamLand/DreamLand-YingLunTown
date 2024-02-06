@@ -23,6 +23,9 @@ func OpenLogFile(path string) (log_file *LogFile, err error) {
 
 // 关闭日志
 func (l *LogFile) CloseFile() error {
+	if l.file == nil {
+		return fmt.Errorf("CloseFile: Log file does not opened")
+	}
 	err := l.file.Close()
 	if err != nil {
 		return fmt.Errorf("CloseFile: %v", err)

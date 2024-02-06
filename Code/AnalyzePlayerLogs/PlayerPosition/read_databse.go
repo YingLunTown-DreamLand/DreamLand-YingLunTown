@@ -1,4 +1,4 @@
-package PlayerLocation
+package PlayerPosition
 
 import (
 	"DB"
@@ -31,8 +31,8 @@ func OpenDatabase(path string) (log_file *LogFile, err error) {
 		return nil, fmt.Errorf("OpenDatabase: %v", err)
 	}
 	// 打开数据库
-	log_file = &LogFile{Database: db}
-	if err = log_file.InitRootIndex(); err != nil {
+	log_file = &LogFile{database: db}
+	if err = log_file.InitrootIndex(); err != nil {
 		return nil, fmt.Errorf("OpenDatabase: %v", err)
 	}
 	// 初始化根索引
@@ -41,10 +41,10 @@ func OpenDatabase(path string) (log_file *LogFile, err error) {
 }
 
 // 初始化日志文件对于数据库的根索引
-func (l *LogFile) InitRootIndex() error {
-	origin_mapping := l.Database.GetMapping()
+func (l *LogFile) InitrootIndex() error {
+	origin_mapping := l.database.GetMapping()
 	decode_mapping := make([]int64, len(origin_mapping))
-	l.RootIndex = struct {
+	l.rootIndex = struct {
 		KeyName [][]byte
 		Time    []time.Time
 	}{
@@ -58,23 +58,37 @@ func (l *LogFile) InitRootIndex() error {
 			binary.LittleEndian,
 			&decode_mapping[key],
 		); err != nil {
-			return fmt.Errorf("InitRootIndex: %v", err)
+			return fmt.Errorf("InitrootIndex: %v", err)
 		}
 	}
 	slices.Sort[[]int64, int64](decode_mapping)
 	// decode and sort
 	for key, value := range decode_mapping {
-		l.RootIndex.Time[key] = time.Unix(value, 0)
-		l.RootIndex.KeyName[key] = make([]byte, 8)
-		if err := binary.Write(
-			bytes.NewBuffer(l.RootIndex.KeyName[key]),
-			binary.LittleEndian,
-			value,
-		); err != nil {
-			return fmt.Errorf("InitRootIndex: %v", err)
+		l.rootIndex.Time[key] = time.Unix(value, 0)
+		buffer := bytes.NewBuffer([]byte{})
+		err := binary.Write(buffer, binary.LittleEndian, value)
+		if err != nil {
+			return fmt.Errorf("InitrootIndex: %v", err)
 		}
+		l.rootIndex.KeyName[key] = buffer.Bytes()
 	}
 	// unmarshal to time.Time and encode to bytes
 	return nil
 	// return
+}
+
+// 安全地关闭已打开的数据库
+func (l *LogFile) CloseDatabase() error {
+	if l.database == nil {
+		return fmt.Errorf("CloseDatabase: Database does not opened")
+	}
+	err := l.database.CloseDatabase()
+	if err != nil {
+		return fmt.Errorf("CloseDatabase: %v", err)
+	}
+	l.rootIndex = struct {
+		KeyName [][]byte
+		Time    []time.Time
+	}{}
+	return nil
 }

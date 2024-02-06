@@ -1,4 +1,4 @@
-package PlayerLocation
+package PlayerPosition
 
 import (
 	"bytes"
@@ -55,13 +55,14 @@ func UnmarshalSingleLog(single_log []byte) (
 	}
 	result = &SingleLog{}
 	// prepare
-	if err = result.Time.UnmarshalBinary(single_log); err != nil {
-		return nil, fmt.Errorf("UnmarshalSingleLog: %v", err)
-	}
-	// decode time
 	if len(single_log) < 16 {
 		return nil, fmt.Errorf("UnmarshalSingleLog: Incomplete single_log; single_log = %#v", single_log)
 	}
+	// check length
+	if err = result.Time.UnmarshalBinary(single_log[0:15]); err != nil {
+		return nil, fmt.Errorf("UnmarshalSingleLog: %v", err)
+	}
+	// decode time
 	if result.Pos, err = UnmarshalPosInfo(single_log[15:]); err != nil {
 		return nil, fmt.Errorf("UnmarshalSingleLog: %v", err)
 	}
