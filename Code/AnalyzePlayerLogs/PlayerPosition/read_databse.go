@@ -32,7 +32,7 @@ func OpenDatabase(path string) (log_file *LogFile, err error) {
 	}
 	// 打开数据库
 	log_file = &LogFile{database: db}
-	if err = log_file.InitrootIndex(); err != nil {
+	if err = log_file.InitRootIndex(); err != nil {
 		return nil, fmt.Errorf("OpenDatabase: %v", err)
 	}
 	// 初始化根索引
@@ -41,7 +41,7 @@ func OpenDatabase(path string) (log_file *LogFile, err error) {
 }
 
 // 初始化日志文件对于数据库的根索引
-func (l *LogFile) InitrootIndex() error {
+func (l *LogFile) InitRootIndex() error {
 	origin_mapping := l.database.GetMapping()
 	decode_mapping := make([]int64, len(origin_mapping))
 	l.rootIndex = struct {
@@ -58,7 +58,7 @@ func (l *LogFile) InitrootIndex() error {
 			binary.LittleEndian,
 			&decode_mapping[key],
 		); err != nil {
-			return fmt.Errorf("InitrootIndex: %v", err)
+			return fmt.Errorf("InitRootIndex: %v", err)
 		}
 	}
 	slices.Sort[[]int64, int64](decode_mapping)
@@ -68,7 +68,7 @@ func (l *LogFile) InitrootIndex() error {
 		buffer := bytes.NewBuffer([]byte{})
 		err := binary.Write(buffer, binary.LittleEndian, value)
 		if err != nil {
-			return fmt.Errorf("InitrootIndex: %v", err)
+			return fmt.Errorf("InitRootIndex: %v", err)
 		}
 		l.rootIndex.KeyName[key] = buffer.Bytes()
 	}
