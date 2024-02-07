@@ -3,7 +3,7 @@ package Example
 import (
 	lpl "AnalyzePlayerLogs/LegacyPlayerLocation"
 	"General"
-	Area "General/Area"
+	"General/Area"
 	"fmt"
 	"time"
 )
@@ -12,19 +12,22 @@ func LegacyPlayerLocation() {
 	file, err := lpl.OpenLogFile("玩家位置")
 	fmt.Println(err)
 	start_time, _ := time.Parse("2006/01/02 15:04:05", "2006/01/01 00:00:00")
-	end_time, _ := time.Parse("2006/01/02 15:04:05", "2024/03/21 15:58:00")
+	end_time, _ := time.Parse("2006/01/02 15:04:05", "2025/12/15 00:00:00")
 	res, err := file.ParseFullLogs(lpl.Filter{
-		StartTime: &start_time,
-		EndTime:   &end_time,
+		StartTime:   &start_time,
+		EndTime:     &end_time,
+		ExcludeArea: nil,
 		Area: []General.Area{
-			&Area.CircleArea{
+			&Area.RectangleArea{
 				Dimension: 0,
-				Center:    [2]float64{40421, 1526},
-				Radius:    64,
+				BeginX:    40500,
+				BeginZ:    1500,
+				EndX:      40563,
+				EndZ:      1563,
 			},
 		},
 		ExcludePlayer: []string{"永恒彡希望与光明", "HappyLove666"},
-		PlayerName:    nil,
+		PlayerName:    []string{},
 	})
 	fmt.Println(err)
 	for _, value := range res {

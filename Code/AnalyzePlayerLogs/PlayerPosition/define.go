@@ -64,6 +64,7 @@ type LogFile struct {
 type Filter struct {
 	StartTime     *time.Time     // 只筛选时间在此后的日志(含边界)
 	EndTime       *time.Time     // 只筛选时间在此前的日志(含边界)
+	ExcludeArea   []General.Area // 排除区域在此区域内的玩家(含边界)
 	Area          []General.Area // 只筛选位置在此区域内的玩家(含边界)
 	ExcludePlayer []PlayerName   // 排除包含这些玩家的日志
 	PlayerName    []PlayerName   // 只有当被记录者在此列时日志才会被筛选

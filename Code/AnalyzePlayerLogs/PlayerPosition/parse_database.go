@@ -85,9 +85,33 @@ func (l *LogFile) GetSinglePlayerLogs(
 				filter.StartTime.Add(-1)) || !log_create_time.Before(filter.EndTime.Add(1))) {
 				continue
 			}
+			if len(filter.ExcludeArea) > 0 {
+				need_exclude := false
+				for _, value := range filter.ExcludeArea {
+					if value == nil {
+						continue
+					}
+					if value.CheckPass(Area.Point{
+						Dimension: pos_info.Dimension,
+						Pos: [2]float64{
+							float64(pos_info.Position[0]),
+							float64(pos_info.Position[2]),
+						},
+					}) {
+						need_exclude = true
+						break
+					}
+				}
+				if need_exclude {
+					continue
+				}
+			}
 			if len(filter.Area) > 0 {
 				need_include := false
 				for _, value := range filter.Area {
+					if value == nil {
+						continue
+					}
 					if value.CheckPass(Area.Point{
 						Dimension: pos_info.Dimension,
 						Pos: [2]float64{

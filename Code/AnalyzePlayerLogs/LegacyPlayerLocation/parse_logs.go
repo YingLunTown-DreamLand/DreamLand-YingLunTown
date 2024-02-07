@@ -136,75 +136,111 @@ func (l *LogFile) ParseSingleLog(
 			return nil, fmt.Errorf("ParseSingleLog: %v", err)
 		}
 		// parse position information
-		if len(filter.ExcludePlayer) > 0 {
-			pos_info := []SinglePosInfo{}
-			for _, value := range res.PosInfo {
-				need_exclude := false
-				for _, v := range filter.ExcludePlayer {
-					if value.PlayerName == v {
-						need_exclude = true
-						break
+		{
+			if len(filter.ExcludePlayer) > 0 {
+				pos_info := []SinglePosInfo{}
+				for _, value := range res.PosInfo {
+					need_exclude := false
+					for _, v := range filter.ExcludePlayer {
+						if value.PlayerName == v {
+							need_exclude = true
+							break
+						}
+					}
+					if !need_exclude {
+						pos_info = append(pos_info, value)
 					}
 				}
-				if !need_exclude {
-					pos_info = append(pos_info, value)
+				if len(pos_info) == 0 {
+					return nil, nil
 				}
+				res.PosInfo = pos_info
 			}
-			if len(pos_info) == 0 {
-				return nil, nil
-			}
-			res.PosInfo = pos_info
-		}
-		// check player name of position information - first check
-		if len(filter.PlayerName) > 0 {
-			pos_info := []SinglePosInfo{}
-			for _, value := range res.PosInfo {
-				need_include := false
-				for _, v := range filter.PlayerName {
-					if value.PlayerName == v {
-						need_include = true
-						break
+			// check exclude list & name related
+			if len(filter.PlayerName) > 0 {
+				pos_info := []SinglePosInfo{}
+				for _, value := range res.PosInfo {
+					need_include := false
+					for _, v := range filter.PlayerName {
+						if value.PlayerName == v {
+							need_include = true
+							break
+						}
+					}
+					if need_include {
+						pos_info = append(pos_info, value)
 					}
 				}
-				if need_include {
-					pos_info = append(pos_info, value)
+				if len(pos_info) == 0 {
+					return nil, nil
 				}
+				res.PosInfo = pos_info
 			}
-			if len(pos_info) == 0 {
-				return nil, nil
-			}
-			res.PosInfo = pos_info
-		}
-		// check player name of position information - second check
-		if filter.Area != nil {
-			pos_info := []SinglePosInfo{}
-			for _, value := range res.PosInfo {
-				need_include := false
-				for _, v := range filter.Area {
-					if v.CheckPass(
-						Area.Point{
-							Dimension: 0,
-							Pos: [2]float64{
-								value.PlayerPosition[0],
-								value.PlayerPosition[2],
+			// check include list & name related
+			if len(filter.ExcludeArea) > 0 {
+				pos_info := []SinglePosInfo{}
+				for _, value := range res.PosInfo {
+					need_exclude := false
+					for _, v := range filter.ExcludeArea {
+						if v == nil {
+							continue
+						}
+						if v.CheckPass(
+							Area.Point{
+								Dimension: 0,
+								Pos: [2]float64{
+									value.PlayerPosition[0],
+									value.PlayerPosition[2],
+								},
 							},
-						},
-					) {
-						need_include = true
-						break
+						) {
+							need_exclude = true
+							break
+						}
+					}
+					if !need_exclude {
+						pos_info = append(pos_info, value)
 					}
 				}
-				if need_include {
-					pos_info = append(pos_info, value)
+				if len(pos_info) == 0 {
+					return nil, nil
 				}
+				res.PosInfo = pos_info
 			}
-			if len(pos_info) == 0 {
-				return nil, nil
+			// check exclude list & area related
+			if len(filter.Area) > 0 {
+				pos_info := []SinglePosInfo{}
+				for _, value := range res.PosInfo {
+					need_include := false
+					for _, v := range filter.Area {
+						if v == nil {
+							continue
+						}
+						if v.CheckPass(
+							Area.Point{
+								Dimension: 0,
+								Pos: [2]float64{
+									value.PlayerPosition[0],
+									value.PlayerPosition[2],
+								},
+							},
+						) {
+							need_include = true
+							break
+						}
+					}
+					if need_include {
+						pos_info = append(pos_info, value)
+					}
+				}
+				if len(pos_info) == 0 {
+					return nil, nil
+				}
+				res.PosInfo = pos_info
 			}
-			res.PosInfo = pos_info
-			// check player position of position information
+			// check include list & area related
 		}
-		// position information
+		// check position information
 		reader.JumpSpace()
 		if next_token := reader.Next(false); next_token != "]" {
 			return nil, fmt.Errorf("ParseSingleLog: Unexpected token %s was found", next_token)
