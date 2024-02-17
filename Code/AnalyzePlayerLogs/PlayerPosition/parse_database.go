@@ -42,8 +42,7 @@ func (l *LogFile) GetSinglePlayerLogs(
 		}
 	}
 	index_mapping = make([][]byte, result.PosChangeDetailsSumCounts)
-	result.PosChangeDetails = make([]SingleLog, result.PosChangeDetailsSumCounts)
-	// decode pos_change_details_sum_counts and make index_mapping, pos_change_details
+	// decode pos_change_details_sum_counts and make index_mapping
 	{
 		index := sub_bucket.GetSubBucketByName([]byte("pos_change_details_index_mapping"))
 		if index == nil {
@@ -71,7 +70,7 @@ func (l *LogFile) GetSinglePlayerLogs(
 			return
 		}
 		// get and check sub bucket
-		for key, value := range index_mapping {
+		for _, value := range index_mapping {
 			log_create_time := time.Time{}
 			if err = log_create_time.UnmarshalBinary(value); err != nil {
 				return nil, fmt.Errorf("GetSinglePlayerLogs: %v", err)
@@ -128,10 +127,13 @@ func (l *LogFile) GetSinglePlayerLogs(
 				}
 			}
 			// check log_create_time and pos_info
-			result.PosChangeDetails[key] = SingleLog{
-				Time: log_create_time,
-				Pos:  pos_info,
-			}
+			result.PosChangeDetails = append(
+				result.PosChangeDetails,
+				SingleLog{
+					Time: log_create_time,
+					Pos:  pos_info,
+				},
+			)
 			// submit the filter result
 		}
 		// set details
@@ -194,6 +196,9 @@ func (l *LogFile) GetSingleDayLogs(
 		if err != nil {
 			return nil, fmt.Errorf("GetSingleDayLogs: %v", err)
 		}
+		if len(player_info.PosChangeDetails) == 0 {
+			continue
+		}
 		(*result)[player_name] = player_info
 		// get and set single player logs
 	}
@@ -224,6 +229,9 @@ func (l *LogFile) GetFullLogs(filter Filter) (
 		single_day_logs, err := l.GetSingleDayLogs(bucket_to_single_day, filter)
 		if err != nil {
 			return FullLogs{}, fmt.Errorf("GetFullLogs: %v", err)
+		}
+		if single_day_logs == nil || len(*single_day_logs) == 0 {
+			continue
 		}
 		res.Set(Datetime(date_time), single_day_logs)
 		// get and set logs for the single day
