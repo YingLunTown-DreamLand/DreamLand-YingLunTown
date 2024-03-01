@@ -98,10 +98,10 @@ func (b *Bucket) GetSubBucketByName(name []byte) (result *Bucket) {
 		sub_bucket_got <- struct{}{}
 		select {
 		case <-sub_bucket_use_down:
-			b.subBucket.Add(-1)
+			b.subBucket.Done()
 		case <-b.terminate:
 			result.UseDown()
-			b.subBucket.Add(-1)
+			b.subBucket.Done()
 			if len(b.terminate) == 0 {
 				b.terminate <- struct{}{}
 			}

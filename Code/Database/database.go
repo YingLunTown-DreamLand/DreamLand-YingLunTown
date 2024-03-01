@@ -115,10 +115,10 @@ func (d *Database) GetBucketByName(name []byte) (result *Bucket) {
 		bucket_got <- struct{}{}
 		select {
 		case <-bucket_use_down:
-			d.openedBucket.Add(-1)
+			d.openedBucket.Done()
 		case <-d.terminate:
 			result.UseDown()
-			d.openedBucket.Add(-1)
+			d.openedBucket.Done()
 			d.terminate <- struct{}{}
 		}
 		return nil
