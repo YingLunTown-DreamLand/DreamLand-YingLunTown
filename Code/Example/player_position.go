@@ -9,13 +9,13 @@ import (
 func PlayerPosition() {
 	file, err := pp.OpenDatabase("PlayerPosition.db")
 	fmt.Println(err)
-	start_time, _ := time.Parse("2006/01/02 15:04:05", "2006/01/01 00:00:00")
-	end_time, _ := time.Parse("2006/01/02 15:04:05", "2024/03/21 15:58:00")
+	start_time, _ := time.ParseInLocation("2006/01/02 15:04:05", "2024/03/20 00:00:00", time.Local)
+	end_time, _ := time.ParseInLocation("2006/01/02 15:04:05", "2024/03/21 00:00:00", time.Local)
 	res, err := file.GetFullLogs(pp.Filter{
 		StartTime:     &start_time,
 		EndTime:       &end_time,
 		Area:          nil,
-		ExcludePlayer: nil, // []pp.PlayerName{"永恒彡希望与光明", "HappyLove666"},
+		ExcludePlayer: []pp.PlayerName{"永恒彡希望与光明", "HappyLove666"},
 		PlayerName:    nil,
 	})
 	fmt.Println(err)
