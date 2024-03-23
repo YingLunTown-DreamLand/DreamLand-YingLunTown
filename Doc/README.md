@@ -9,3 +9,4 @@
 - `YingLun Town - Main`
     - [`Black List.md`](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/blob/main/Doc/YingLun%20Town%20-%20Main/Black%20List.md)
     - [`Player Login History.json`](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/blob/main/Doc/YingLun%20Town%20-%20Main/Player%20Login%20History.json)
+    - [`Server Operators.json`](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/blob/main/Doc/YingLun%20Town%20-%20Main/Server%20Operators.json)
