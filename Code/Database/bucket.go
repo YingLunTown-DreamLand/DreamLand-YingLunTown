@@ -89,7 +89,7 @@ func (b *Bucket) GetSubBucketByName(name []byte) (result *Bucket) {
 	go func() {
 		result = &Bucket{
 			b:         b.b.Bucket(name),
-			mapping:   Mapping.GetNewMapping(),
+			mapping:   Mapping.Mapping{},
 			terminate: make(chan struct{}, 1),
 			subBucket: &sync.WaitGroup{},
 			use_down:  sub_bucket_use_down,

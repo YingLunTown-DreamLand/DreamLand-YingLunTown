@@ -28,7 +28,7 @@ func OpenOrCreateDatabase(path string) (
 	}
 	database = &Database{
 		db:           db,
-		mapping:      Mapping.GetNewMapping(),
+		mapping:      Mapping.Mapping{},
 		terminate:    make(chan struct{}, 1),
 		openedBucket: &sync.WaitGroup{},
 	}
@@ -106,7 +106,7 @@ func (d *Database) GetBucketByName(name []byte) (result *Bucket) {
 	go d.db.Update(func(tx *bbolt.Tx) error {
 		result = &Bucket{
 			b:         tx.Bucket(name),
-			mapping:   Mapping.GetNewMapping(),
+			mapping:   Mapping.Mapping{},
 			terminate: make(chan struct{}, 1),
 			subBucket: &sync.WaitGroup{},
 			use_down:  bucket_use_down,

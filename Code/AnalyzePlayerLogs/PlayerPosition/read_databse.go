@@ -61,7 +61,7 @@ func (l *LogFile) InitRootIndex() error {
 			return fmt.Errorf("InitRootIndex: %v", err)
 		}
 	}
-	slices.Sort[[]int64, int64](decode_mapping)
+	slices.Sort(decode_mapping)
 	// decode and sort
 	for key, value := range decode_mapping {
 		l.rootIndex.Time[key] = time.Unix(value, 0)
