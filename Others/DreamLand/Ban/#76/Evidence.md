@@ -2,16 +2,16 @@
 - [目录](#目录)
 - [基本信息](#基本信息)
 - [处理说明](#处理说明)
-  - [文字说明](#文字说明)
-  - [图片说明](#图片说明)
+	- [文字说明](#文字说明)
+	- [图片说明](#图片说明)
 - [处理结果](#处理结果)
 - [凭证收集](#凭证收集)
-  - [Chapter One](#chapter-one)
-  - [Chapter Two](#chapter-two)
-  - [Chapter Three](#chapter-three)
-  - [Chapter Four](#chapter-four)
-  - [Chapter Five](#chapter-five)
-  - [Chapter Six](#chapter-six)
+	- [Chapter One](#chapter-one)
+	- [Chapter Two](#chapter-two)
+	- [Chapter Three](#chapter-three)
+	- [Chapter Four](#chapter-four)
+	- [Chapter Five](#chapter-five)
+	- [Chapter Six](#chapter-six)
 
 
 
@@ -116,7 +116,21 @@
 
 ## Chapter Four
 ```
-2			[2024-06-09 21:16:59.9146953 +0800 CST] Dimension: 0, Position: (1019.91223,91.75753,-992.45654), YRot: -144.98291
+2024-06-09 00:00:00 +0800 CST
+	怒吼黄药师散步
+		PosChangeDetailsSumCounts: 145
+		LastInfoRecord: [2024-06-09 23:59:55.2418854 +0800 CST] Dimension: 0, Position: (86.27015,114.62001,-92.57676), YRot: 36.023743
+		PosChangeDetails:
+			[2024-06-09 21:05:39.886646 +0800 CST] Dimension: 0, Position: (1009.2838,90.0112,-992.6311), YRot: 89.79855
+			[2024-06-09 21:06:04.8704539 +0800 CST] Dimension: 0, Position: (1017.9043,91.942795,-985.6112), YRot: -129.74348
+			[2024-06-09 21:14:44.9011518 +0800 CST] Dimension: 0, Position: (1005.1929,98.13514,-997.4279), YRot: -40.489883
+			[2024-06-09 21:14:49.9205263 +0800 CST] Dimension: 0, Position: (1023.5054,92.78116,-993.11316), YRot: 101.99405
+			[2024-06-09 21:14:54.9481793 +0800 CST] Dimension: 0, Position: (974.588,96.400116,-991.2104), YRot: -158.12799
+			[2024-06-09 21:16:24.911982 +0800 CST] Dimension: 0, Position: (999.0487,95.91777,-981.2583), YRot: 68.78433
+			[2024-06-09 21:16:44.893454 +0800 CST] Dimension: 0, Position: (989.3813,94.83179,-988.1028), YRot: -60.87268
+			[2024-06-09 21:16:49.9181288 +0800 CST] Dimension: 0, Position: (1011.8952,93.33948,-995.8895), YRot: 86.63385
+			[2024-06-09 21:16:54.912942 +0800 CST] Dimension: 0, Position: (1003.2155,88.71539,-980.969), YRot: -130.57187
+			[2024-06-09 21:16:59.9146953 +0800 CST] Dimension: 0, Position: (1019.91223,91.75753,-992.45654), YRot: -144.98291
 			[2024-06-09 21:17:04.9274225 +0800 CST] Dimension: 0, Position: (1022.4785,65.32914,-995.887), YRot: -119.1426
 			[2024-06-09 21:17:29.9104128 +0800 CST] Dimension: 0, Position: (1003.9283,98.34563,-1003.8193), YRot: 101.349976
 			[2024-06-09 21:17:49.9245254 +0800 CST] Dimension: 0, Position: (994.95276,100.414375,-992.72504), YRot: -70.845535
