@@ -75,8 +75,11 @@
 ## Chapter One
 ![image](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/assets/109064184/b01dc619-c56c-4c3e-ad76-1de418248ba2)
 ![image](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/assets/109064184/2b8bbd3f-74ae-4b30-b993-0917527ce01c)
-![video](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/blob/main/Others/DreamLand/Ban/%2376/Video%20Evidence.mp4)
 ![image](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/assets/109064184/289260d3-c582-441b-9772-b4b8e80ba77b)
+
+***
+
+[Video Evidence.mp4](https://github.com/YingLunTown-DreamLand/DreamLand-YingLunTown/raw/main/Others/DreamLand/Ban/%2376/Video%20Evidence.mp4)
 
 
 
