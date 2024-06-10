@@ -92,8 +92,9 @@ func (l *LogFile) GetSinglePlayerLogs(
 					}
 					if value.CheckPass(Area.Point{
 						Dimension: pos_info.Dimension,
-						Pos: [2]float64{
+						Pos: [3]float64{
 							float64(pos_info.Position[0]),
+							float64(pos_info.Position[1]),
 							float64(pos_info.Position[2]),
 						},
 					}) {
@@ -113,8 +114,9 @@ func (l *LogFile) GetSinglePlayerLogs(
 					}
 					if value.CheckPass(Area.Point{
 						Dimension: pos_info.Dimension,
-						Pos: [2]float64{
+						Pos: [3]float64{
 							float64(pos_info.Position[0]),
+							float64(pos_info.Position[1]),
 							float64(pos_info.Position[2]),
 						},
 					}) {

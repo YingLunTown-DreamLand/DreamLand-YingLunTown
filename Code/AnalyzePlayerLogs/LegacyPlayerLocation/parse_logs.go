@@ -188,8 +188,9 @@ func (l *LogFile) ParseSingleLog(
 						if v.CheckPass(
 							Area.Point{
 								Dimension: 0,
-								Pos: [2]float64{
+								Pos: [3]float64{
 									value.PlayerPosition[0],
+									value.PlayerPosition[1],
 									value.PlayerPosition[2],
 								},
 							},
@@ -219,8 +220,9 @@ func (l *LogFile) ParseSingleLog(
 						if v.CheckPass(
 							Area.Point{
 								Dimension: 0,
-								Pos: [2]float64{
+								Pos: [3]float64{
 									value.PlayerPosition[0],
+									value.PlayerPosition[1],
 									value.PlayerPosition[2],
 								},
 							},

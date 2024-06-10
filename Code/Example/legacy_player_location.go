@@ -18,11 +18,13 @@ func LegacyPlayerLocation() {
 		EndTime:     &end_time,
 		ExcludeArea: nil,
 		Area: []General.Area{
-			&Area.RectangleArea{
+			&Area.CuboidArea{
 				Dimension: 0,
 				BeginX:    40500,
+				BeginY:    -64,
 				BeginZ:    1500,
 				EndX:      40563,
+				EndY:      319,
 				EndZ:      1563,
 			},
 		},
