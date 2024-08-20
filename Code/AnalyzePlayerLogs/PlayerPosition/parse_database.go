@@ -222,9 +222,14 @@ func (l *LogFile) GetFullLogs(filter Filter) (
 	// prepare
 	for key, value := range l.rootIndex.KeyName {
 		date_time := l.rootIndex.Time[key]
-		if filter.StartTime != nil && filter.EndTime != nil && (!date_time.After(
-			filter.StartTime.Add(-1)) || !date_time.Before(filter.EndTime.Add(1))) {
-			continue
+		if filter.StartTime != nil && filter.EndTime != nil {
+			startYear, startMonth, startDay := filter.StartTime.Date()
+			endYear, endMonth, endDay := filter.EndTime.Date()
+			startDate := time.Date(startYear, startMonth, startDay, 0, 0, 0, 0, time.Local)
+			endDate := time.Date(endYear, endMonth, endDay, 0, 0, 0, 0, time.Local).Add(time.Hour * 24)
+			if !date_time.After(startDate.Add(-1)) || !date_time.Before(endDate.Add(1)) {
+				continue
+			}
 		}
 		// check data time
 		bucket_to_single_day := l.database.GetBucketByName(value)
