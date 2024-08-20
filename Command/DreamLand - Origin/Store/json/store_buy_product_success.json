@@ -1,0 +1,46 @@
+{
+    "rawtext": [
+        {
+            "text": "StoreBuyProductEvent(1)|"
+        },
+        {
+            "selector": "@s"
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "store:buy_product_type",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ",true,"
+        },
+        {
+            "score": {
+                "objective": "store:buy_money_cost",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "money",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "general:math",
+                "name": "@s"
+            }
+        }
+    ]
+}

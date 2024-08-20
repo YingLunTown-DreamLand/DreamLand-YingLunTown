@@ -1,0 +1,14 @@
+# General
+objective=money
+objective=general:math
+tag=core:bot
+
+# Legacy
+objective=money_cost
+objective=money_int
+
+# Buy
+objective=store:buy_money_cost
+objective=store:buy_product_type
+tag=store:buy_failed
+name=reversal

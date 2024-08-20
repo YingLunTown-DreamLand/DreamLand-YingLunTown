@@ -1,0 +1,1 @@
+scoreboard players set reversal general:math -1

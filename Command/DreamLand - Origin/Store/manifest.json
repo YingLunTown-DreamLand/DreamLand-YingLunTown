@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Command System for DreamLand Origin",
+        "name": "Store",
+        "uuid": "730c9439-4a3d-47f6-9a74-dbb0aac4dd07",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            18,
+            30
+        ]
+    },
+    "modules": [
+        {
+            "description": "StoreModules",
+            "type": "data",
+            "uuid": "1e40b585-4c93-487a-8c6c-0a996bff055c",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
