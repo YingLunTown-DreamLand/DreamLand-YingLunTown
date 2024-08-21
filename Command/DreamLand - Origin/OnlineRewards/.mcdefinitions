@@ -1,0 +1,12 @@
+# General
+objective=money
+objective=general:math
+tag=core:bot
+
+# Legacy
+objective=time_1
+
+# Online Rewards
+objective=online_rewards:time
+function=count_name
+function=online_rewards

@@ -1,0 +1,1 @@
+scoreboard players add @a online_rewards:time 1

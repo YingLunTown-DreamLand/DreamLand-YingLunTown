@@ -1,0 +1,28 @@
+{
+    "rawtext": [
+        {
+            "text": "PublishOnlineRewardsEvent(3)|"
+        },
+        {
+            "selector": "@s"
+        },
+        {
+            "text": ",online_rewards(int32),"
+        },
+        {
+            "score": {
+                "objective": "general:math",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "money",
+                "name": "@s"
+            }
+        }
+    ]
+}
