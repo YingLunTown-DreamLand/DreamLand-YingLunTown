@@ -1,0 +1,31 @@
+{
+    "rawtext": [
+        {
+            "text": "TeleportRequestEvent(4)|"
+        },
+        {
+            "selector": "@s"
+        },
+        {
+            "text": ",true,"
+        },
+        {
+            "text": "money_cost(int32),"
+        },
+        {
+            "score": {
+                "objective": "general:math",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "money",
+                "name": "@s"
+            }
+        }
+    ]
+}

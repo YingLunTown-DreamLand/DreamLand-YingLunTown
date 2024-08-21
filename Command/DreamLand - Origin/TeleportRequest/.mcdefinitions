@@ -1,0 +1,11 @@
+# General
+objective=money
+objective=general:math
+tag=core:bot
+
+# Legacy
+tag=tp
+
+# Teleport Request
+tag=teleport_request:iter
+tag=teleport_request:check_pass

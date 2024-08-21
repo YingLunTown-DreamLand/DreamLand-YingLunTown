@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Command System for DreamLand Origin",
+        "name": "Online Rewards",
+        "uuid": "508d3557-63ef-4237-8085-c1fa31dc043b",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            18,
+            30
+        ]
+    },
+    "modules": [
+        {
+            "description": "Online Rewards Modules",
+            "type": "data",
+            "uuid": "97a59d34-774c-40b2-881c-42ff8bca8d08",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}

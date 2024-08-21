@@ -1,0 +1,2 @@
+diagnostic.disable.minecraft.commands.execute.deprecated=true
+diagnostic.disable.minecraft.tag.invalid=true
