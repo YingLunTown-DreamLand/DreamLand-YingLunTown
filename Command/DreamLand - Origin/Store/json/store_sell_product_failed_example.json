@@ -1,0 +1,40 @@
+{
+    "rawtext": [
+        {
+            "text": "StoreSellProductEvent(2)|"
+        },
+        {
+            "selector": "@s"
+        },
+        {
+            "text": ","
+        },
+        {
+            "text": "sell_product_type(int32)"
+        },
+        {
+            "text": ",false,"
+        },
+        {
+            "text": "money_get(int32)"
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "general:math",
+                "name": "@s"
+            }
+        },
+        {
+            "text": ","
+        },
+        {
+            "score": {
+                "objective": "money",
+                "name": "@s"
+            }
+        }
+    ]
+}

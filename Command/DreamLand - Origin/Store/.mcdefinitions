@@ -12,3 +12,7 @@ objective=store:buy_money_cost
 objective=store:buy_product_type
 tag=store:buy_failed
 name=reversal
+
+# Sell
+tag=store:sell_iter
+tag=store:sell_check_pass
