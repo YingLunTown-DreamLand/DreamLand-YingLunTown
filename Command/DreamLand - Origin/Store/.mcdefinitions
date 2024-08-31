@@ -16,3 +16,25 @@ name=reversal
 # Sell
 tag=store:sell_iter
 tag=store:sell_check_pass
+
+# Depends
+objective=store:select
+name=concrete
+name=glazed_terracotta
+name=terracotta
+structrue=store:select_concrete_1
+structrue=store:select_concrete_2
+structrue=store:select_concrete_3
+structrue=store:select_concrete_4
+structrue=store:select_concrete_5
+structrue=store:select_concrete_6
+structrue=store:select_concrete_7
+structrue=store:select_concrete_8
+structrue=store:select_concrete_9
+structrue=store:select_concrete_10
+structrue=store:select_concrete_11
+structrue=store:select_concrete_12
+structrue=store:select_concrete_13
+structrue=store:select_concrete_14
+structrue=store:select_concrete_15
+structrue=store:select_concrete_16

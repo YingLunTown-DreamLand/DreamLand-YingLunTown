@@ -4,3 +4,6 @@ diagnostic.disable.behaviorpack.block.states.invalid=true
 diagnostic.disable.minecraft.tag.invalid=true
 diagnostic.disable.behaviorpack.item.missing=true
 diagnostic.disable.minecraft.commands.scoreboard.syntax=true
+diagnostic.disable.minecraft.commands.clone.syntax=true
+diagnostic.disable.minecraft.commands.structure.syntax=true
+diagnostic.disable.behaviorpack.mcstructure.missing=true

@@ -1,0 +1,244 @@
+{
+    "rawtext": [
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=1}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e白色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=2}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e淡灰色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=3}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e灰色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=4}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e黑色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=5}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e棕色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=6}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e红色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=7}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e橙色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=8}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e黄色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=9}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e黄绿色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=10}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e绿色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=11}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e青色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=12}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e淡蓝色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=13}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e蓝色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=14}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e紫色带釉陶瓦"
+                    }
+                ]
+            }
+        },
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=15}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e品红色带釉陶瓦"
+                    }
+                ]
+            }
+        }
+    ]
+}

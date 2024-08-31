@@ -1,0 +1,20 @@
+{
+    "rawtext": [
+        {
+            "translate": "%%2",
+            "with": {
+                "rawtext": [
+                    {
+                        "score": {
+                            "objective": "general:math",
+                            "name": "@a[scores={general:math=17}]"
+                        }
+                    },
+                    {
+                        "text": "§a您已成功选择 §e粉红色陶瓦"
+                    }
+                ]
+            }
+        }
+    ]
+}
