@@ -1,0 +1,7 @@
+# General
+tag=Core:CreativeAllowed
+
+# Items Enum
+tag=temp_ban_items:no_need_to_clean
+function=check_player
+function=items_enum

@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Command System for DreamLand Origin",
+        "name": "Temporality Ban Items",
+        "uuid": "298500db-9cfc-4c11-923c-ddb67f1bb0e9",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            20,
+            10
+        ]
+    },
+    "modules": [
+        {
+            "description": "Temporality Ban Items Modules",
+            "type": "data",
+            "uuid": "91dea605-d59c-4db9-8bc0-e1765c030623",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
