@@ -1,0 +1,20 @@
+# objective
+objective=db:io
+objective=db:io_count
+objective=db:states
+objective=db:current_offset_x
+objective=db:current_offset_z
+objective=db:move_offset_x
+objective=db:move_offset_z
+objective=db:math
+objective=db:power_number
+
+# tag
+tag=db:io
+tag=db:io_read
+tag=db:io_write
+tag=db:temp_is_reading
+tag=db:temp_is_writing
+
+# fake entity
+name=base_number

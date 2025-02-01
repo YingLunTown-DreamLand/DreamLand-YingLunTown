@@ -1,0 +1,2 @@
+diagnostic.disable.minecraft.tag.invalid=true
+diagnostic.disable.behaviorpack.mcfunction.missing=true

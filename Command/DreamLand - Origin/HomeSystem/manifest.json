@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "New home system for DreamLand players.",
+        "name": "HomeSystem",
+        "uuid": "8bb1379a-64b9-4b71-8ab6-40ad99ff5314",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            20,
+            50
+        ]
+    },
+    "modules": [
+        {
+            "description": "HomeSystem",
+            "type": "data",
+            "uuid": "ba5b5b48-57f7-4958-84f9-01f8d6212813",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
