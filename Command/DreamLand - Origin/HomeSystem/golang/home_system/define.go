@@ -1,4 +1,4 @@
-package database
+package home_system
 
 // HomeConfig 描述一个家园的配置项
 type HomeConfig struct {

@@ -1,4 +1,4 @@
-package database
+package home_system
 
 /*
 HomeConfig (Data coding structure)

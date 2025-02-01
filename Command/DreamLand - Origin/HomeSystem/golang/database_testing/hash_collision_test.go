@@ -1,4 +1,4 @@
-package system_testing
+package database_testing
 
 import (
 	"crypto/rand"

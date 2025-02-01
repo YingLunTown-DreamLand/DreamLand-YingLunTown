@@ -1,0 +1,5 @@
+scoreboard players set PermissionTypeHomeSystem home_system:permission_type 4
+scoreboard players set PermissionTypeHomeOwner home_system:permission_type 3
+scoreboard players set PermissionTypeHomeManager home_system:permission_type 2
+scoreboard players set PermissionTypeHomeAllower home_system:permission_type 1
+scoreboard players set PermissionTypeHomeUnallower home_system:permission_type 0

@@ -1,4 +1,5 @@
 # objective
+objective=uid
 objective=db:io
 objective=db:io_count
 objective=db:states
@@ -8,6 +9,10 @@ objective=db:move_offset_x
 objective=db:move_offset_z
 objective=db:math
 objective=db:power_number
+objective=home_system:pointer_owner
+objective=home_system:home_uid
+objective=home_system:home_owner_uid
+objective=home_system:permission_type
 
 # tag
 tag=db:io
@@ -15,6 +20,17 @@ tag=db:io_read
 tag=db:io_write
 tag=db:temp_is_reading
 tag=db:temp_is_writing
+tag=home_system:making_auth
+tag=home_system:multiple_auth_request
+tag=home_system:admin_could_manager
+tag=home_system:creative_could_manager
+tag=home_system:trusted_player_could_manager
 
 # fake entity
 name=base_number
+name=general_uid
+name=PermissionTypeHomeSystem
+name=PermissionTypeHomeOwner
+name=PermissionTypeHomeManager
+name=PermissionTypeHomeAllower
+name=PermissionTypeHomeUnallower

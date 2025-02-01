@@ -1,0 +1,1 @@
+function home_system/home_auth/make_auth

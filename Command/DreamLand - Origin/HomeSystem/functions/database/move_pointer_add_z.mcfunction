@@ -1,8 +1,7 @@
 # move_pointer_add_z 将指针向 z 
-# 轴正方向移动 move_offset_z 格。
-#
-# 此操作不会改变 current_offset_z 的值，
-# 您应当手动调整
+# 轴正方向移动 move_offset_z 格
+
+execute as @e[tag=db:io,scores={db:move_offset_z=1..}] run scoreboard players operation @s db:current_offset_z += @s db:move_offset_z
 
 execute as @e[tag=db:io,scores={db:move_offset_z=32..}] at @s run tp ~ ~ ~32
 scoreboard players remove @e[tag=db:io,scores={db:move_offset_z=32..}] db:move_offset_z 32

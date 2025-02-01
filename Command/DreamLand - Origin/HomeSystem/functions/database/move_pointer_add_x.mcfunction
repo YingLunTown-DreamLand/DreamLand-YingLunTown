@@ -1,8 +1,7 @@
 # move_pointer_add_x 将指针向 x 
-# 轴正方向移动 move_offset_x 格。
-#
-# 此操作不会改变 current_offset_x 的值，
-# 您应当手动调整
+# 轴正方向移动 move_offset_x 格
+
+execute as @e[tag=db:io,scores={db:move_offset_x=1..}] run scoreboard players operation @s db:current_offset_x += @s db:move_offset_x
 
 execute as @e[tag=db:io,scores={db:move_offset_x=32..}] at @s run tp ~32 ~ ~
 scoreboard players remove @e[tag=db:io,scores={db:move_offset_x=32..}] db:move_offset_x 32
