@@ -6,3 +6,4 @@ tag @a[tag=Core:CreativeAllowed] add temp_ban_items:no_need_to_clean
 tag @a[name=指令修阳] add temp_ban_items:no_need_to_clean
 tag @a[name=德方的世界100号] add temp_ban_items:no_need_to_clean
 tag @a[name=牛肉不吃小鸭] add temp_ban_items:no_need_to_clean
+tag @a[name=小鸭不吃牛肉] add temp_ban_items:no_need_to_clean
